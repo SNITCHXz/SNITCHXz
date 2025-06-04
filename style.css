@@ -1,103 +1,62 @@
 body {
-  font-family: Arial, sans-serif;
   margin: 0;
-  padding: 0;
-  background: #f4f4f4;
-  color: #333;
+  font-family: 'Montserrat', sans-serif;
+  background-color: #111;
+  color: #fff;
 }
 
-header {
-  background: #111;
-  color: white;
+.site-header {
   padding: 20px;
-  text-align: center;
-}
-
-header h1 {
-  margin: 0;
-  font-size: 2rem;
-}
-
-nav {
-  margin-top: 10px;
-}
-
-nav a {
-  color: white;
-  margin: 0 15px;
-  text-decoration: none;
-  font-weight: bold;
-}
-
-nav a:hover {
-  text-decoration: underline;
-}
-
-section {
-  padding: 20px;
-  max-width: 1000px;
-  margin: auto;
-}
-
-.products {
+  background-color: #000;
   display: flex;
-  flex-wrap: wrap;
-  gap: 20px;
+  align-items: center;
+  justify-content: center;
 }
 
-.product-card {
-  background: white;
-  border-radius: 8px;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-  width: 200px;
+.logo-img {
+  height: 60px;
+}
+
+.section {
+  padding: 30px 20px;
+}
+
+.section h2 {
+  font-size: 22px;
+  margin-bottom: 20px;
+  color: #fcd535;
+}
+
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 15px;
+}
+
+.product {
+  background-color: #1a1a1a;
   padding: 15px;
+  border-radius: 10px;
   text-align: center;
+  border: 1px solid #333;
 }
 
-.product-card img {
-  width: 100%;
-  border-radius: 8px;
+.product span {
+  display: block;
+  margin-top: 5px;
+  font-size: 14px;
+  color: #aaa;
 }
 
-.product-card h3 {
-  margin: 10px 0 5px 0;
-}
-
-.product-card p {
-  margin: 0 0 10px 0;
-  color: #666;
-}
-
-.product-card button {
-  background: #25d366;
-  border: none;
+.whatsapp-button {
+  display: block;
+  margin: 40px auto;
+  background-color: #25D366;
   color: white;
-  padding: 10px;
-  border-radius: 5px;
-  cursor: pointer;
+  padding: 15px 25px;
+  text-align: center;
+  border-radius: 30px;
+  text-decoration: none;
+  width: fit-content;
   font-weight: bold;
-  width: 100%;
-}
-
-.product-card button:hover {
-  background: #128c4a;
-}
-
-footer {
-  background: #111;
-  color: white;
-  text-align: center;
-  padding: 15px;
-  margin-top: 30px;
-}
-
-/* Responsive for mobile */
-@media (max-width: 600px) {
-  .products {
-    flex-direction: column;
-    align-items: center;
-  }
-  .product-card {
-    width: 90%;
-  }
 }
