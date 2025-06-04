@@ -1,202 +1,202 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>SNITCHX - Luxury Shopping</title>
-<style>
-  @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&display=swap');
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>SNITCHX - Luxury Shopping</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&display=swap');
 
-  /* Reset */
-  * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
-
-  body {
-    font-family: 'Poppins', sans-serif;
-    background: #0d0d0d;
-    color: #eee;
-    line-height: 1.6;
-  }
-
-  /* Container */
-  .container {
-    max-width: 1200px;
-    margin: auto;
-    padding: 20px;
-  }
-
-  /* Header */
-  header {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding-bottom: 30px;
-    border-bottom: 1px solid #222;
-  }
-
-  header img {
-    height: 60px;
-    filter: drop-shadow(0 0 5px #00fff7);
-    transition: transform 0.4s ease;
-  }
-  header img:hover {
-    transform: scale(1.1) rotate(5deg);
-  }
-
-  header h1 {
-    font-weight: 600;
-    letter-spacing: 5px;
-    font-size: 28px;
-    color: #00fff7;
-    text-shadow: 0 0 8px #00fff7;
-  }
-
-  /* Navigation */
-  nav a {
-    color: #aaa;
-    text-decoration: none;
-    margin-left: 30px;
-    font-weight: 600;
-    position: relative;
-    transition: color 0.3s ease;
-  }
-
-  nav a::after {
-    content: '';
-    position: absolute;
-    width: 0%;
-    height: 2px;
-    bottom: -6px;
-    left: 0;
-    background: #00fff7;
-    transition: width 0.3s ease;
-  }
-
-  nav a:hover {
-    color: #00fff7;
-  }
-  nav a:hover::after {
-    width: 100%;
-  }
-
-  /* Sections */
-  section {
-    margin-top: 40px;
-  }
-
-  section h2 {
-    color: #00fff7;
-    font-weight: 700;
-    font-size: 26px;
-    margin-bottom: 20px;
-    text-shadow: 0 0 6px #00fff7;
-    letter-spacing: 3px;
-    animation: glowText 3s ease-in-out infinite alternate;
-  }
-
-  @keyframes glowText {
-    0% {
-      text-shadow: 0 0 5px #00fff7, 0 0 15px #00fff7;
+    /* Reset */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
     }
-    100% {
-      text-shadow: 0 0 20px #00fff7, 0 0 30px #00fff7;
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: #0d0d0d;
+      color: #eee;
+      line-height: 1.6;
     }
-  }
 
-  /* Product Grid */
-  .product-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit,minmax(220px,1fr));
-    gap: 25px;
-  }
+    /* Container */
+    .container {
+      max-width: 1200px;
+      margin: auto;
+      padding: 20px;
+    }
 
-  /* Product Card */
-  .product-card {
-    background: #111;
-    border-radius: 15px;
-    padding: 15px;
-    box-shadow: 0 0 15px #00fff7aa;
-    transition: transform 0.3s ease, box-shadow 0.4s ease;
-    cursor: pointer;
-    position: relative;
-    overflow: hidden;
-  }
-  .product-card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 0 30px #00fff7ff;
-  }
+    /* Header */
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding-bottom: 30px;
+      border-bottom: 1px solid #222;
+    }
 
-  .product-card img {
-    width: 100%;
-    height: 160px;
-    object-fit: contain;
-    margin-bottom: 15px;
-    transition: transform 0.4s ease;
-  }
-  .product-card:hover img {
-    transform: scale(1.1);
-  }
+    header img {
+      height: 60px;
+      filter: drop-shadow(0 0 5px #00fff7);
+      transition: transform 0.4s ease;
+    }
+    header img:hover {
+      transform: scale(1.1) rotate(5deg);
+    }
 
-  .product-name {
-    font-weight: 600;
-    font-size: 18px;
-    color: #00fff7;
-    margin-bottom: 8px;
-    min-height: 48px;
-  }
+    header h1 {
+      font-weight: 600;
+      letter-spacing: 5px;
+      font-size: 28px;
+      color: #00fff7;
+      text-shadow: 0 0 8px #00fff7;
+    }
 
-  .product-desc {
-    font-size: 14px;
-    color: #bbb;
-    margin-bottom: 15px;
-    min-height: 50px;
-  }
+    /* Navigation */
+    nav a {
+      color: #aaa;
+      text-decoration: none;
+      margin-left: 30px;
+      font-weight: 600;
+      position: relative;
+      transition: color 0.3s ease;
+    }
 
-  .product-price {
-    font-weight: 700;
-    font-size: 16px;
-    color: #00ff99;
-    letter-spacing: 1px;
-  }
+    nav a::after {
+      content: '';
+      position: absolute;
+      width: 0%;
+      height: 2px;
+      bottom: -6px;
+      left: 0;
+      background: #00fff7;
+      transition: width 0.3s ease;
+    }
 
-  /* WhatsApp Button */
-  .whatsapp-btn {
-    position: fixed;
-    bottom: 25px;
-    right: 25px;
-    background: #25d366;
-    width: 60px;
-    height: 60px;
-    border-radius: 50%;
-    box-shadow: 0 0 15px #25d366cc;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    cursor: pointer;
-    transition: box-shadow 0.3s ease;
-    z-index: 100;
-  }
-  .whatsapp-btn:hover {
-    box-shadow: 0 0 25px #25d366ff;
-  }
-  .whatsapp-btn img {
-    width: 32px;
-    height: 32px;
-    filter: drop-shadow(0 0 3px #fff);
-  }
+    nav a:hover {
+      color: #00fff7;
+    }
+    nav a:hover::after {
+      width: 100%;
+    }
 
-  /* Footer */
-  footer {
-    margin-top: 60px;
-    text-align: center;
-    color: #444;
-    font-size: 14px;
-    letter-spacing: 1.5px;
-  }
-</style>
+    /* Sections */
+    section {
+      margin-top: 40px;
+    }
+
+    section h2 {
+      color: #00fff7;
+      font-weight: 700;
+      font-size: 26px;
+      margin-bottom: 20px;
+      text-shadow: 0 0 6px #00fff7;
+      letter-spacing: 3px;
+      animation: glowText 3s ease-in-out infinite alternate;
+    }
+
+    @keyframes glowText {
+      0% {
+        text-shadow: 0 0 5px #00fff7, 0 0 15px #00fff7;
+      }
+      100% {
+        text-shadow: 0 0 20px #00fff7, 0 0 30px #00fff7;
+      }
+    }
+
+    /* Product Grid */
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit,minmax(220px,1fr));
+      gap: 25px;
+    }
+
+    /* Product Card */
+    .product-card {
+      background: #111;
+      border-radius: 15px;
+      padding: 15px;
+      box-shadow: 0 0 15px #00fff7aa;
+      transition: transform 0.3s ease, box-shadow 0.4s ease;
+      cursor: pointer;
+      position: relative;
+      overflow: hidden;
+    }
+    .product-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 0 30px #00fff7ff;
+    }
+
+    .product-card img {
+      width: 100%;
+      height: 160px;
+      object-fit: contain;
+      margin-bottom: 15px;
+      transition: transform 0.4s ease;
+    }
+    .product-card:hover img {
+      transform: scale(1.1);
+    }
+
+    .product-name {
+      font-weight: 600;
+      font-size: 18px;
+      color: #00fff7;
+      margin-bottom: 8px;
+      min-height: 48px;
+    }
+
+    .product-desc {
+      font-size: 14px;
+      color: #bbb;
+      margin-bottom: 15px;
+      min-height: 50px;
+    }
+
+    .product-price {
+      font-weight: 700;
+      font-size: 16px;
+      color: #00ff99;
+      letter-spacing: 1px;
+    }
+
+    /* WhatsApp Button */
+    .whatsapp-btn {
+      position: fixed;
+      bottom: 25px;
+      right: 25px;
+      background: #25d366;
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      box-shadow: 0 0 15px #25d366cc;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
+      transition: box-shadow 0.3s ease;
+      z-index: 100;
+    }
+    .whatsapp-btn:hover {
+      box-shadow: 0 0 25px #25d366ff;
+    }
+    .whatsapp-btn img {
+      width: 32px;
+      height: 32px;
+      filter: drop-shadow(0 0 3px #fff);
+    }
+
+    /* Footer */
+    footer {
+      margin-top: 60px;
+      text-align: center;
+      color: #444;
+      font-size: 14px;
+      letter-spacing: 1.5px;
+    }
+  </style>
 </head>
 <body>
   <div class="container">
@@ -276,18 +276,4 @@
   </div>
 
   <!-- WhatsApp Floating Button -->
-  <div class="whatsapp-btn" onclick="openWhatsApp('Hello, I want to know more about your products')">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" />
-  </div>
-
-  <script>
-    const whatsappNumber = '9928678907'; // Replace with your number
-
-    function openWhatsApp(productName) {
-      const message = encodeURIComponent(`Hi, I'm interested in the product: ${productName}. Please share more details.`);
-      const url = `https://wa.me/${whatsappNumber}?text=${message}`;
-      window.open(url, '_blank');
-    }
-  </script>
-</body>
-</html>
+  <div class="8
