@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>SNITCHX - Professional Online Store</title>
+  <title>SNITCHX - Premium Store</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
@@ -20,57 +20,21 @@
 <section id="watches">
   <h2>Watches</h2>
   <div class="products">
-    <div class="product-card">
-      <img src="https://via.placeholder.com/150" alt="Explorer II" />
-      <h3>Explorer II</h3>
-      <p>Oyster, 42 mm, Oystersteel</p>
-      <button onclick="orderWhatsApp('Explorer II')">Order on WhatsApp</button>
-    </div>
-    <div class="product-card">
-      <img src="https://via.placeholder.com/150" alt="Submariner Date" />
-      <h3>Submariner Date</h3>
-      <p>Oyster, 41 mm, Oystersteel NEW MODEL 2020</p>
-      <button onclick="orderWhatsApp('Submariner Date')">Order on WhatsApp</button>
-    </div>
-    <!-- Add more watch products here -->
+    <!-- Product cards go here -->
   </div>
 </section>
 
 <section id="shoes">
   <h2>Shoes</h2>
   <div class="products">
-    <div class="product-card">
-      <img src="https://via.placeholder.com/150" alt="Nike Jordan Retro" />
-      <h3>Jordan Retro</h3>
-      <p>Price: $12,000</p>
-      <button onclick="orderWhatsApp('Jordan Retro')">Order on WhatsApp</button>
-    </div>
-    <div class="product-card">
-      <img src="https://via.placeholder.com/150" alt="Air Yeezy Red October" />
-      <h3>Air Yeezy Red October</h3>
-      <p>Price: $6,000</p>
-      <button onclick="orderWhatsApp('Air Yeezy Red October')">Order on WhatsApp</button>
-    </div>
-    <!-- Add more shoes products here -->
+    <!-- Product cards go here -->
   </div>
 </section>
 
 <section id="clothing">
   <h2>Clothing</h2>
   <div class="products">
-    <div class="product-card">
-      <img src="https://via.placeholder.com/150" alt="T-Shirt" />
-      <h3>Basic T-Shirt</h3>
-      <p>Comfortable cotton T-shirt</p>
-      <button onclick="orderWhatsApp('Basic T-Shirt')">Order on WhatsApp</button>
-    </div>
-    <div class="product-card">
-      <img src="https://via.placeholder.com/150" alt="Pants" />
-      <h3>Casual Pants</h3>
-      <p>Stylish and comfortable</p>
-      <button onclick="orderWhatsApp('Casual Pants')">Order on WhatsApp</button>
-    </div>
-    <!-- Add more clothing products here -->
+    <!-- Product cards go here -->
   </div>
 </section>
 
@@ -78,14 +42,6 @@
   <p>© 2025 SNITCHX. All rights reserved.</p>
 </footer>
 
-<script>
-  function orderWhatsApp(product) {
-    const phone = "9928678907";
-    const message = `Hi, I want to order ${product} from SNITCHX. Please assist me.`;
-    const url = `https://wa.me/${phone}?text=${encodeURIComponent(message)}`;
-    window.open(url, "_blank");
-  }
-</script>
-
+<script src="script.js"></script>
 </body>
 </html>
