@@ -2,278 +2,54 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>SNITCHX - Luxury Shopping</title>
-  <style>
-    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&display=swap');
-
-    /* Reset */
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    body {
-      font-family: 'Poppins', sans-serif;
-      background: #0d0d0d;
-      color: #eee;
-      line-height: 1.6;
-    }
-
-    /* Container */
-    .container {
-      max-width: 1200px;
-      margin: auto;
-      padding: 20px;
-    }
-
-    /* Header */
-    header {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding-bottom: 30px;
-      border-bottom: 1px solid #222;
-    }
-
-    header img {
-      height: 60px;
-      filter: drop-shadow(0 0 5px #00fff7);
-      transition: transform 0.4s ease;
-    }
-    header img:hover {
-      transform: scale(1.1) rotate(5deg);
-    }
-
-    header h1 {
-      font-weight: 600;
-      letter-spacing: 5px;
-      font-size: 28px;
-      color: #00fff7;
-      text-shadow: 0 0 8px #00fff7;
-    }
-
-    /* Navigation */
-    nav a {
-      color: #aaa;
-      text-decoration: none;
-      margin-left: 30px;
-      font-weight: 600;
-      position: relative;
-      transition: color 0.3s ease;
-    }
-
-    nav a::after {
-      content: '';
-      position: absolute;
-      width: 0%;
-      height: 2px;
-      bottom: -6px;
-      left: 0;
-      background: #00fff7;
-      transition: width 0.3s ease;
-    }
-
-    nav a:hover {
-      color: #00fff7;
-    }
-    nav a:hover::after {
-      width: 100%;
-    }
-
-    /* Sections */
-    section {
-      margin-top: 40px;
-    }
-
-    section h2 {
-      color: #00fff7;
-      font-weight: 700;
-      font-size: 26px;
-      margin-bottom: 20px;
-      text-shadow: 0 0 6px #00fff7;
-      letter-spacing: 3px;
-      animation: glowText 3s ease-in-out infinite alternate;
-    }
-
-    @keyframes glowText {
-      0% {
-        text-shadow: 0 0 5px #00fff7, 0 0 15px #00fff7;
-      }
-      100% {
-        text-shadow: 0 0 20px #00fff7, 0 0 30px #00fff7;
-      }
-    }
-
-    /* Product Grid */
-    .product-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit,minmax(220px,1fr));
-      gap: 25px;
-    }
-
-    /* Product Card */
-    .product-card {
-      background: #111;
-      border-radius: 15px;
-      padding: 15px;
-      box-shadow: 0 0 15px #00fff7aa;
-      transition: transform 0.3s ease, box-shadow 0.4s ease;
-      cursor: pointer;
-      position: relative;
-      overflow: hidden;
-    }
-    .product-card:hover {
-      transform: translateY(-10px);
-      box-shadow: 0 0 30px #00fff7ff;
-    }
-
-    .product-card img {
-      width: 100%;
-      height: 160px;
-      object-fit: contain;
-      margin-bottom: 15px;
-      transition: transform 0.4s ease;
-    }
-    .product-card:hover img {
-      transform: scale(1.1);
-    }
-
-    .product-name {
-      font-weight: 600;
-      font-size: 18px;
-      color: #00fff7;
-      margin-bottom: 8px;
-      min-height: 48px;
-    }
-
-    .product-desc {
-      font-size: 14px;
-      color: #bbb;
-      margin-bottom: 15px;
-      min-height: 50px;
-    }
-
-    .product-price {
-      font-weight: 700;
-      font-size: 16px;
-      color: #00ff99;
-      letter-spacing: 1px;
-    }
-
-    /* WhatsApp Button */
-    .whatsapp-btn {
-      position: fixed;
-      bottom: 25px;
-      right: 25px;
-      background: #25d366;
-      width: 60px;
-      height: 60px;
-      border-radius: 50%;
-      box-shadow: 0 0 15px #25d366cc;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      cursor: pointer;
-      transition: box-shadow 0.3s ease;
-      z-index: 100;
-    }
-    .whatsapp-btn:hover {
-      box-shadow: 0 0 25px #25d366ff;
-    }
-    .whatsapp-btn img {
-      width: 32px;
-      height: 32px;
-      filter: drop-shadow(0 0 3px #fff);
-    }
-
-    /* Footer */
-    footer {
-      margin-top: 60px;
-      text-align: center;
-      color: #444;
-      font-size: 14px;
-      letter-spacing: 1.5px;
-    }
-  </style>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>SNITCHX - Luxury Fashion</title>
+  <link rel="stylesheet" href="style.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;700&display=swap" rel="stylesheet"/>
 </head>
 <body>
-  <div class="container">
-    <header>
-      <img src="logo.png" alt="SnitchX Logo" />
+  <header>
+    <div class="logo"><img src="logo.png" alt="SnitchX"/></div>
+    <nav>
+      <ul>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#products">Collection</a></li>
+        <li><a href="https://wa.me/919928678907" target="_blank">Order</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section class="hero" id="home">
+    <div class="hero-content">
       <h1>SNITCHX</h1>
-      <nav>
-        <a href="#shoes">Shoes</a>
-        <a href="#watches">Watches</a>
-        <a href="#clothing">Clothing</a>
-      </nav>
-    </header>
+      <p>Luxury. Street. Style.</p>
+      <a href="#products" class="btn">Explore Collection</a>
+    </div>
+  </section>
 
-    <!-- Shoes Section -->
-    <section id="shoes">
-      <h2>🔥 Shoes Collection</h2>
-      <div class="product-grid">
-        <div class="product-card" onclick="openWhatsApp('Nike Shoes')">
-          <img src="https://images.unsplash.com/photo-1519744792095-2f2205e87b6f?auto=format&fit=crop&w=400&q=80" alt="Nike Shoes" />
-          <div class="product-name">Nike Shoes</div>
-          <div class="product-desc">Latest Nike sneakers with premium comfort and style.</div>
-          <div class="product-price">$120</div>
-        </div>
-        <div class="product-card" onclick="openWhatsApp('Jordan Retro')">
-          <img src="https://images.unsplash.com/photo-1528701800489-563a5e3d73ab?auto=format&fit=crop&w=400&q=80" alt="Jordan Retro" />
-          <div class="product-name">Jordan Retro</div>
-          <div class="product-desc">Classic Jordan retro edition with vibrant colors.</div>
-          <div class="product-price">$150</div>
-        </div>
-        <!-- Add more shoe products as needed -->
+  <section class="products" id="products">
+    <h2>Featured Products</h2>
+    <div class="product-grid">
+      <div class="product-card">
+        <img src="watch.jpg" alt="Rolex Explorer II"/>
+        <h3>Rolex Explorer II</h3>
+        <p>Oyster, 42mm, Oystersteel</p>
       </div>
-    </section>
-
-    <!-- Watches Section -->
-    <section id="watches">
-      <h2>⌚ Watches Collection</h2>
-      <div class="product-grid">
-        <div class="product-card" onclick="openWhatsApp('Rolex Explorer II')">
-          <img src="https://upload.wikimedia.org/wikipedia/commons/9/9e/Rolex_Explorer_II_216570.jpg" alt="Rolex Explorer II" />
-          <div class="product-name">Explorer II</div>
-          <div class="product-desc">Oyster, 42 mm, Oystersteel</div>
-          <div class="product-price">$32,275</div>
-        </div>
-        <div class="product-card" onclick="openWhatsApp('Rolex Submariner Date')">
-          <img src="https://upload.wikimedia.org/wikipedia/commons/e/e0/Rolex_Submariner_Date_16610.jpg" alt="Rolex Submariner Date" />
-          <div class="product-name">Submariner Date</div>
-          <div class="product-desc">Oyster, 41 mm, Oystersteel NEW MODEL 2020</div>
-          <div class="product-price">$35,000</div>
-        </div>
-        <!-- Add more watch products as needed -->
+      <div class="product-card">
+        <img src="nike.jpg" alt="Nike Red October"/>
+        <h3>Nike Red October</h3>
+        <p>Rare Edition | $6,000</p>
       </div>
-    </section>
-
-    <!-- Clothing Section -->
-    <section id="clothing">
-      <h2>👕 Clothing Collection</h2>
-      <div class="product-grid">
-        <div class="product-card" onclick="openWhatsApp('T-Shirt')">
-          <img src="https://images.unsplash.com/photo-1512436991641-6745cdb1723f?auto=format&fit=crop&w=400&q=80" alt="T-Shirt" />
-          <div class="product-name">T-Shirt</div>
-          <div class="product-desc">Comfortable cotton T-shirt for everyday wear.</div>
-          <div class="product-price">$25</div>
-        </div>
-        <div class="product-card" onclick="openWhatsApp('Pants')">
-          <img src="https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?auto=format&fit=crop&w=400&q=80" alt="Pants" />
-          <div class="product-name">Pants</div>
-          <div class="product-desc">Stylish and durable pants perfect for casual outings.</div>
-          <div class="product-price">$45</div>
-        </div>
-        <!-- Add more clothing products as needed -->
+      <div class="product-card">
+        <img src="iphone.jpg" alt="iPhone Clone"/>
+        <h3>iPhone Clone</h3>
+        <p>Premium Finish | iOS Styled</p>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <footer>
-      &copy; 2025 SNITCHX | Crafted with 💙 by You
-    </footer>
-  </div>
-
-  <!-- WhatsApp Floating Button -->
-  <div class="8
+  <footer>
+    <p>&copy; 2025 SNITCHX. All Rights Reserved. | Powered by Nobii</p>
+  </footer>
+</body>
+</html>
