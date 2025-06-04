@@ -2,298 +2,52 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>SNITCHX - Luxury Products</title>
-  <style>
-    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&display=swap');
-
-    * {
-      box-sizing: border-box;
-      margin: 0; padding: 0;
-      font-family: 'Poppins', sans-serif;
-    }
-
-    body, html {
-      height: 100%;
-      background: #111;
-      color: #f2a900;
-      overflow-x: hidden;
-    }
-
-    #particles-js {
-      position: fixed;
-      width: 100%;
-      height: 100%;
-      z-index: -1;
-      top: 0; left: 0;
-    }
-
-    header {
-      display: flex;
-      align-items: center;
-      padding: 20px 40px;
-      border-bottom: 1px solid #f2a900;
-      background-color: rgba(0,0,0,0.85);
-      position: sticky;
-      top: 0;
-      z-index: 10;
-    }
-
-    header img {
-      height: 45px;
-      margin-right: 15px;
-    }
-
-    header h1 {
-      font-weight: 600;
-      font-size: 28px;
-      letter-spacing: 2px;
-      color: #f2a900;
-    }
-
-    main {
-      max-width: 1200px;
-      margin: 40px auto;
-      padding: 0 20px;
-    }
-
-    section {
-      margin-bottom: 60px;
-    }
-
-    section h2 {
-      font-size: 32px;
-      font-weight: 600;
-      margin-bottom: 30px;
-      border-left: 6px solid #f2a900;
-      padding-left: 15px;
-    }
-
-    .products {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 30px;
-    }
-
-    .product {
-      background: rgba(255 255 255 / 0.05);
-      border-radius: 12px;
-      padding: 15px;
-      box-shadow: 0 0 8px 2px rgba(242,169,0,0.25);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-      cursor: pointer;
-    }
-
-    .product:hover {
-      transform: translateY(-6px);
-      box-shadow: 0 0 15px 4px #f2a900;
-    }
-
-    .product img {
-      width: 100%;
-      border-radius: 10px;
-      margin-bottom: 15px;
-      object-fit: contain;
-      height: 180px;
-    }
-
-    .product-name {
-      font-weight: 600;
-      font-size: 20px;
-      margin-bottom: 6px;
-      color: #f2a900;
-    }
-
-    .product-desc {
-      font-size: 14px;
-      opacity: 0.8;
-      margin-bottom: 8px;
-    }
-
-    .product-price {
-      font-size: 18px;
-      font-weight: 700;
-      color: #fff;
-    }
-
-    footer {
-      text-align: center;
-      padding: 20px;
-      color: #f2a900;
-      font-weight: 500;
-      letter-spacing: 1.1px;
-      background-color: rgba(0,0,0,0.85);
-      margin-top: 50px;
-    }
-  </style>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SNITCHX - Premium Streetwear</title>
+  <link rel="stylesheet" href="style.css" />
+  <script src="https://cdn.jsdelivr.net/npm/particles.js"></script>
 </head>
 <body>
   <div id="particles-js"></div>
 
-  <header>
-    <img src="logo.png" alt="SNITCHX Logo" />
+  <header class="navbar">
+    <img src="logo.png" class="logo" />
     <h1>SNITCHX</h1>
   </header>
 
-  <main>
-    <section id="watches">
-      <h2>Watches</h2>
-      <div class="products">
-        <div class="product">
-          <img src="https://cdn.pixabay.com/photo/2016/11/29/03/53/watch-1869228_1280.jpg" alt="EXPLORER II" />
-          <div class="product-name">EXPLORER II</div>
-          <div class="product-desc">Oyster, 42 mm, Oystersteel</div>
-          <div class="product-price">$12,000</div>
-        </div>
-        <div class="product">
-          <img src="https://cdn.pixabay.com/photo/2017/03/23/17/44/watch-2161328_1280.jpg" alt="SUBMARINER DATE" />
-          <div class="product-name">SUBMARINER DATE</div>
-          <div class="product-desc">Oyster, 41 mm, Oystersteel NEW MODEL 2020</div>
-          <div class="product-price">$13,500</div>
-        </div>
-        <div class="product">
-          <img src="https://cdn.pixabay.com/photo/2015/07/13/11/08/rolex-842826_1280.jpg" alt="SKY-DWELLER" />
-          <div class="product-name">SKY-DWELLER</div>
-          <div class="product-desc">Oyster, 42 mm, Oystersteel and yellow gold</div>
-          <div class="product-price">$16,000</div>
-        </div>
-        <!-- Add more watches similarly -->
+  <section class="section" id="watches">
+    <h2>Luxury Watches</h2>
+    <div class="product-grid">
+      <div class="product-card">
+        <h3>EXPLORER II</h3>
+        <p>Oyster, 42 mm, Oystersteel</p>
       </div>
-    </section>
-
-    <section id="shoes">
-      <h2>Shoes</h2>
-      <div class="products">
-        <div class="product">
-          <img src="https://cdn.pixabay.com/photo/2017/01/30/19/24/sneakers-2029402_1280.jpg" alt="JORDAN RETRO" />
-          <div class="product-name">JORDAN RETRO</div>
-          <div class="product-desc">Limited Edition</div>
-          <div class="product-price">$12,000</div>
-        </div>
-        <div class="product">
-          <img src="https://cdn.pixabay.com/photo/2016/11/29/10/07/shoes-1869230_1280.jpg" alt="AIR YEEZY RED OCTOBER" />
-          <div class="product-name">AIR YEEZY RED OCTOBER</div>
-          <div class="product-desc">Rare & Exclusive</div>
-          <div class="product-price">$6,000</div>
-        </div>
-        <div class="product">
-          <img src="https://cdn.pixabay.com/photo/2017/07/31/11/31/sneakers-2557924_1280.jpg" alt="DUNK SB LOW STAPLECION" />
-          <div class="product-name">DUNK SB LOW STAPLECION</div>
-          <div class="product-desc">Classic Design</div>
-          <div class="product-price">$5,699</div>
-        </div>
-        <!-- Add more shoes similarly -->
+      <div class="product-card">
+        <h3>SUBMARINER DATE</h3>
+        <p>Oyster, 41 mm, NEW MODEL 2020</p>
       </div>
-    </section>
+      <!-- Add more here -->
+    </div>
+  </section>
 
-    <section id="clothing">
-      <h2>Clothing</h2>
-      <div class="products">
-        <div class="product">
-          <img src="https://cdn.pixabay.com/photo/2016/03/27/21/16/leather-jacket-1282232_1280.jpg" alt="Leather Jacket" />
-          <div class="product-name">Leather Jacket</div>
-          <div class="product-desc">Premium Quality, Stylish</div>
-          <div class="product-price">$120</div>
-        </div>
-        <div class="product">
-          <img src="https://cdn.pixabay.com/photo/2016/12/06/18/27/t-shirt-1888994_1280.jpg" alt="Casual T-Shirt" />
-          <div class="product-name">Casual T-Shirt</div>
-          <div class="product-desc">Comfort & Style</div>
-          <div class="product-price">$30</div>
-        </div>
-        <div class="product">
-          <img src="https://cdn.pixabay.com/photo/2018/02/25/16/25/jeans-3173199_1280.jpg" alt="Blue Jeans" />
-          <div class="product-name">Blue Jeans</div>
-          <div class="product-desc">Denim Classic</div>
-          <div class="product-price">$60</div>
-        </div>
+  <section class="section" id="shoes">
+    <h2>Nike Sneakers</h2>
+    <div class="product-grid">
+      <div class="product-card">
+        <h3>YEEZY RED OCTOBER</h3>
+        <p>$6,000</p>
       </div>
-    </section>
-  </main>
+      <div class="product-card">
+        <h3>JORDAN RETRO SAVNARTT</h3>
+        <p>$12,000</p>
+      </div>
+    </div>
+  </section>
 
-  <footer>
-    &copy; 2025 SNITCHX. All rights reserved.
+  <footer class="footer">
+    <p>© 2025 SNITCHX. Premium Streetwear. DM on WhatsApp to order.</p>
   </footer>
 
-  <!-- Particles.js library -->
-  <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
-  <script>
-    particlesJS("particles-js", {
-      "particles": {
-        "number": {
-          "value": 80,
-          "density": {
-            "enable": true,
-            "value_area": 900
-          }
-        },
-        "color": {
-          "value": "#f2a900"
-        },
-        "shape": {
-          "type": "circle",
-          "stroke": {
-            "width": 0,
-            "color": "#000000"
-          }
-        },
-        "opacity": {
-          "value": 0.2,
-          "random": false,
-          "anim": {
-            "enable": false
-          }
-        },
-        "size": {
-          "value": 3,
-          "random": true,
-          "anim": {
-            "enable": false
-          }
-        },
-        "line_linked": {
-          "enable": true,
-          "distance": 140,
-          "color": "#f2a900",
-          "opacity": 0.1,
-          "width": 1
-        },
-        "move": {
-          "enable": true,
-          "speed": 2,
-          "direction": "none",
-          "random": false,
-          "straight": false,
-          "out_mode": "out"
-        }
-      },
-      "interactivity": {
-        "detect_on": "canvas",
-        "events": {
-          "onhover": {
-            "enable": true,
-            "mode": "grab"
-          },
-          "onclick": {
-            "enable": true,
-            "mode": "push"
-          },
-          "resize": true
-        },
-        "modes": {
-          "grab": {
-            "distance": 140,
-            "line_linked": {
-              "opacity": 0.3
-            }
-          },
-          "push": {
-            "particles_nb": 4
-          }
-        }
-      },
-      "retina_detect": true
-    });
-  </script>
+  <script src="script.js"></script>
 </body>
 </html>
