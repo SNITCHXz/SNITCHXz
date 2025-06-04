@@ -1,241 +1,287 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>SNITCHX - Premium Streetwear & Watches</title>
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
-<!-- AOS CSS -->
-<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
-<style>
-  /* Reset & base */
-  * {
-    margin: 0; padding: 0; box-sizing: border-box;
-  }
-  body {
-    font-family: 'Poppins', sans-serif;
-    background: #0a0a0a;
-    color: #fff;
-    line-height: 1.6;
-  }
-  a {
-    color: inherit;
-    text-decoration: none;
-  }
-  img {
-    max-width: 100%;
-    display: block;
-  }
-
-  /* Container */
-  .container {
-    max-width: 1200px;
-    margin: auto;
-    padding: 20px;
-  }
-
-  /* Header */
-  header {
-    padding: 20px 0;
-    text-align: center;
-    border-bottom: 1px solid #222;
-  }
-  header img {
-    width: 150px;
-    filter: drop-shadow(0 0 5px #FFD700);
-  }
-
-  /* Hero */
-  .hero {
-    padding: 80px 20px;
-    text-align: center;
-    color: #FFD700;
-  }
-  .hero h1 {
-    font-weight: 700;
-    font-size: 3rem;
-    margin-bottom: 15px;
-    letter-spacing: 3px;
-    text-shadow: 0 0 10px #FFD700;
-  }
-  .hero p {
-    font-weight: 400;
-    font-size: 1.25rem;
-    color: #ddd;
-    max-width: 600px;
-    margin: 0 auto;
-  }
-
-  /* Sections */
-  section {
-    margin: 60px 0;
-  }
-  section h2 {
-    font-size: 2rem;
-    color: #FFD700;
-    margin-bottom: 30px;
-    text-align: center;
-    text-shadow: 0 0 5px #FFD700;
-  }
-
-  /* Product grid */
-  .products {
-    display: grid;
-    grid-template-columns: repeat(auto-fit,minmax(260px,1fr));
-    gap: 25px;
-  }
-
-  /* Product card */
-  .product-card {
-    background: #111;
-    border-radius: 12px;
-    box-shadow: 0 0 20px rgba(255, 215, 0, 0.15);
-    padding: 20px;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-  }
-  .product-card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 0 25px #FFD700;
-  }
-  .product-card img {
-    border-radius: 8px;
-    margin-bottom: 15px;
-  }
-  .product-card h3 {
-    font-size: 1.25rem;
-    margin-bottom: 8px;
-    color: #FFD700;
-  }
-  .product-card p {
-    font-size: 1rem;
-    margin-bottom: 12px;
-    color: #ddd;
-  }
-  .product-card .price {
-    font-weight: 600;
-    color: #fff;
-    margin-bottom: 15px;
-  }
-  .product-card button {
-    background: #FFD700;
-    border: none;
-    border-radius: 30px;
-    padding: 10px 20px;
-    font-weight: 700;
-    cursor: pointer;
-    color: #111;
-    transition: background 0.3s ease;
-    width: 100%;
-  }
-  .product-card button:hover {
-    background: #e6c200;
-  }
-
-  /* Footer */
-  footer {
-    text-align: center;
-    padding: 25px 10px;
-    font-size: 0.9rem;
-    color: #888;
-    border-top: 1px solid #222;
-  }
-
-  /* Responsive tweaks */
-  @media (max-width: 600px) {
-    .hero h1 {
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Snitchx Luxury Store</title>
+  <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+  <style>
+    /* Reset & base */
+    * {
+      margin: 0; padding: 0; box-sizing: border-box;
+    }
+    body, html {
+      height: 100%;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: #111;
+      color: #eee;
+      overflow-x: hidden;
+    }
+    #particles-js {
+      position: fixed;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+      top: 0; left: 0;
+      background: linear-gradient(135deg, #1a1a1a, #111);
+    }
+    .container {
+      max-width: 1200px;
+      margin: auto;
+      padding: 40px 20px;
+      position: relative;
+      z-index: 10;
+    }
+    header {
+      display: flex;
+      align-items: center;
+      margin-bottom: 40px;
+      gap: 15px;
+    }
+    header img {
+      height: 50px;
+      width: auto;
+    }
+    header h1 {
+      font-size: 2.8rem;
+      letter-spacing: 4px;
+      font-weight: 700;
+      color: #f2a900; /* gold accent */
+      text-transform: uppercase;
+      user-select: none;
+    }
+    section {
+      margin-bottom: 60px;
+    }
+    section h2 {
       font-size: 2rem;
+      border-bottom: 2px solid #f2a900;
+      padding-bottom: 8px;
+      margin-bottom: 30px;
+      user-select: none;
     }
-    .hero p {
-      font-size: 1rem;
+    .products {
+      display: grid;
+      grid-template-columns: repeat(auto-fit,minmax(220px,1fr));
+      gap: 25px;
     }
-  }
-</style>
+    .product-card {
+      background: #222;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(242, 169, 0, 0.3);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      cursor: pointer;
+    }
+    .product-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 10px 30px rgba(242, 169, 0, 0.6);
+    }
+    .product-image {
+      height: 150px;
+      margin-bottom: 15px;
+      border-radius: 8px;
+      background: #333;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+    .product-image img {
+      max-width: 100%;
+      max-height: 100%;
+      object-fit: contain;
+    }
+    .product-name {
+      font-weight: 600;
+      font-size: 1.1rem;
+      margin-bottom: 8px;
+      user-select: none;
+    }
+    .product-price {
+      color: #f2a900;
+      font-weight: 700;
+      font-size: 1.15rem;
+      user-select: none;
+    }
+    footer {
+      text-align: center;
+      padding: 30px 10px;
+      font-size: 0.9rem;
+      color: #666;
+      user-select: none;
+    }
+    /* Responsive tweaks */
+    @media(max-width: 600px){
+      header h1 {
+        font-size: 1.8rem;
+      }
+      .product-image {
+        height: 120px;
+      }
+    }
+  </style>
 </head>
 <body>
+  <div id="particles-js"></div>
 
-<header>
-  <img src="logo.png" alt="SNITCHX Logo" />
-</header>
+  <div class="container">
 
-<section class="hero" data-aos="fade-down" data-aos-duration="1200">
-  <h1>SNITCHX</h1>
-  <p>Premium Streetwear, Watches & Accessories — Elevate Your Style</p>
-</section>
+    <header>
+      <img src="images/logo.png" alt="Snitch Logo" />
+      <h1>Snitchx</h1>
+    </header>
 
-<section id="shoes" class="container" data-aos="fade-up" data-aos-duration="1200">
-  <h2>Shoes Collection</h2>
-  <div class="products">
-    <div class="product-card">
-      <img src="https://images.unsplash.com/photo-1600185369165-1812d0c43153?auto=format&fit=crop&w=400&q=80" alt="Jordan Retro" />
-      <h3>Jordan Retro</h3>
-      <p>Limited Edition Sneakers</p>
-      <p class="price">$12,000</p>
-      <button onclick="orderWhatsApp('Jordan Retro - Limited Edition Sneakers - $12,000')">Order on WhatsApp</button>
-    </div>
-    <div class="product-card">
-      <img src="https://images.unsplash.com/photo-1528701800489-07ef6b23ac6f?auto=format&fit=crop&w=400&q=80" alt="Nike Air Max" />
-      <h3>Nike Air Max</h3>
-      <p>Comfort & Style</p>
-      <p class="price">$2,500</p>
-      <button onclick="orderWhatsApp('Nike Air Max - Comfort & Style - $2,500')">Order on WhatsApp</button>
-    </div>
+    <section id="shoes">
+      <h2>Shoes</h2>
+      <div class="products">
+        <div class="product-card">
+          <div class="product-image">
+            <img src="https://via.placeholder.com/200x150?text=Jordan+Retro" alt="Jordan Retro" />
+          </div>
+          <div class="product-name">Jordan Retro ENNEN SAVNARTT</div>
+          <div class="product-price">$12,000</div>
+        </div>
+        <div class="product-card">
+          <div class="product-image">
+            <img src="https://via.placeholder.com/200x150?text=Air+Yeezy+Red+October" alt="Air Yeezy Red October" />
+          </div>
+          <div class="product-name">Air Yeezy Red October</div>
+          <div class="product-price">$6,000</div>
+        </div>
+        <div class="product-card">
+          <div class="product-image">
+            <img src="https://via.placeholder.com/200x150?text=Foamposite+One" alt="Foamposite One" />
+          </div>
+          <div class="product-name">Foamposite One PARANDAR</div>
+          <div class="product-price">$4,500</div>
+        </div>
+      </div>
+    </section>
+
+    <section id="watches">
+      <h2>Watches</h2>
+      <div class="products">
+        <div class="product-card">
+          <div class="product-image">
+            <img src="https://via.placeholder.com/200x150?text=Rolex+Submariner" alt="Rolex Submariner" />
+          </div>
+          <div class="product-name">Rolex Submariner</div>
+          <div class="product-price">$32,275</div>
+        </div>
+        <div class="product-card">
+          <div class="product-image">
+            <img src="https://via.placeholder.com/200x150?text=Omega+Seamaster" alt="Omega Seamaster" />
+          </div>
+          <div class="product-name">Omega Seamaster</div>
+          <div class="product-price">$8,000</div>
+        </div>
+      </div>
+    </section>
+
+    <section id="clothing">
+      <h2>Clothing</h2>
+      <div class="products">
+        <div class="product-card">
+          <div class="product-image">
+            <img src="https://via.placeholder.com/200x150?text=Carhartt+Jacket" alt="Carhartt Jacket" />
+          </div>
+          <div class="product-name">Carhartt Jacket</div>
+          <div class="product-price">$3,850</div>
+        </div>
+        <div class="product-card">
+          <div class="product-image">
+            <img src="https://via.placeholder.com/200x150?text=LeBron+Elite" alt="LeBron Elite" />
+          </div>
+          <div class="product-name">LeBron 10 Elite Peach Jam PE</div>
+          <div class="product-price">$1,500</div>
+        </div>
+      </div>
+    </section>
+
   </div>
-</section>
 
-<section id="watches" class="container" data-aos="fade-up" data-aos-duration="1200" data-aos-delay="200">
-  <h2>Watches Collection</h2>
-  <div class="products">
-    <div class="product-card">
-      <img src="https://images.unsplash.com/photo-1518544880809-8d3f1a76448d?auto=format&fit=crop&w=400&q=80" alt="Rolex Explorer II" />
-      <h3>Explorer II</h3>
-      <p>Oyster, 42 mm, Oystersteel</p>
-      <p class="price">Price on request</p>
-      <button onclick="orderWhatsApp('Rolex Explorer II - Oyster, 42 mm, Oystersteel')">Order on WhatsApp</button>
-    </div>
-    <div class="product-card">
-      <img src="https://images.unsplash.com/photo-1508610048659-16e7c580c0f0?auto=format&fit=crop&w=400&q=80" alt="Submariner Date" />
-      <h3>Submariner Date</h3>
-      <p>Oyster, 41 mm, Oystersteel NEW MODEL 2020</p>
-      <p class="price">Price on request</p>
-      <button onclick="orderWhatsApp('Rolex Submariner Date - Oyster, 41 mm, Oystersteel NEW MODEL 2020')">Order on WhatsApp</button>
-    </div>
-  </div>
-</section>
+  <footer>
+    &copy; 2025 Snitchx. All rights reserved.
+  </footer>
 
-<section id="clothing" class="container" data-aos="fade-up" data-aos-duration="1200" data-aos-delay="400">
-  <h2>Clothing Collection</h2>
-  <div class="products">
-    <div class="product-card">
-      <img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?auto=format&fit=crop&w=400&q=80" alt="T-Shirt" />
-      <h3>Classic T-Shirt</h3>
-      <p>100% Cotton, Comfortable Fit</p>
-      <p class="price">$25</p>
-      <button onclick="orderWhatsApp('Classic T-Shirt - 100% Cotton, Comfortable Fit - $25')">Order on WhatsApp</button>
-    </div>
-    <div class="product-card">
-      <img src="https://images.unsplash.com/photo-1512436991641-6745cdb1723f?auto=format&fit=crop&w=400&q=80" alt="Jeans" />
-      <h3>Denim Jeans</h3>
-      <p>Stylish and Durable</p>
-      <p class="price">$60</p>
-      <button onclick="orderWhatsApp('Denim Jeans - Stylish and Durable - $60')">Order on WhatsApp</button>
-    </div>
-  </div>
-</section>
+  <script>
+    particlesJS('particles-js', {
+      "particles": {
+        "number": {
+          "value": 60,
+          "density": {
+            "enable": true,
+            "value_area": 800
+          }
+        },
+        "color": {
+          "value": "#ffffff"
+        },
+        "shape": {
+          "type": "circle",
+          "stroke": {
+            "width": 0,
+            "color": "#000000"
+          }
+        },
+        "opacity": {
+          "value": 0.2,
+          "random": true,
+          "anim": {
+            "enable": true,
+            "speed": 1,
+            "opacity_min": 0.05,
+            "sync": false
+          }
+        },
+        "size": {
+          "value": 3,
+          "random": true,
+          "anim": {
+            "enable": false
+          }
+        },
+        "line_linked": {
+          "enable": true,
+          "distance": 130,
+          "color": "#ffffff",
+          "opacity": 0.1,
+          "width": 1
+        },
+        "move": {
+          "enable": true,
+          "speed": 1,
+          "direction": "none",
+          "random": false,
+          "straight": false,
+          "out_mode": "out"
+        }
+      },
+      "interactivity": {
+        "detect_on": "canvas",
+        "events": {
+          "onhover": {
+            "enable": true,
+            "mode": "grab"
+          },
+          "onclick": {
+            "enable": false
+          },
+          "resize": true
+        },
+        "modes": {
+          "grab": {
+            "distance": 120,
+            "line_linked": {
+              "opacity": 0.3
+            }
+          }
+        }
+      },
+      "retina_detect": true
+    });
+  </script>
 
-<footer>
-  &copy; 2025 SNITCHX. All rights reserved.
-</footer>
-
-<!-- AOS JS -->
-<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-<script>
-  AOS.init();
-
-  function orderWhatsApp(product) {
-    const phone = "9928678907"; // Your WhatsApp number without + or 00
-    const message = encodeURIComponent(`Hello, I want to order: ${product} from SNITCHX.`);
-    window.open(`https://wa.me/${phone}?text=${message}`, "_blank");
-  }
-</script>
 </body>
 </html>
