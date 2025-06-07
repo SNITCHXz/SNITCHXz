@@ -1,210 +1,274 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" >
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>SnitchX - Premium Store</title>
+  <title>SnitchX | Premium Store</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet" />
+
   <style>
-    /* Basic Reset */
+    /* Reset */
     * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
+      margin: 0; padding: 0; box-sizing: border-box;
     }
-    body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background: linear-gradient(135deg, #1f1c2c, #928dab);
+
+    body, html {
+      height: 100%;
+      font-family: 'Montserrat', sans-serif;
+      background-color: #f5f5f5;
+      color: #222;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    /* Main content */
+    #mainSite {
+      max-width: 1200px;
+      margin: 60px auto 100px;
+      padding: 0 20px;
+    }
+
+    #mainSite h1 {
+      font-family: 'Playfair Display', serif;
+      font-weight: 700;
+      font-size: 3.6rem;
+      text-align: center;
+      margin-bottom: 60px;
+      color: #222;
+      letter-spacing: 6px;
+      text-transform: uppercase;
+      user-select: none;
+    }
+
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 40px;
+    }
+
+    .product-card {
+      background: #fff;
+      border-radius: 20px;
+      padding: 25px 20px 30px;
+      box-shadow: 0 12px 25px rgba(0, 0, 0, 0.12);
+      position: relative;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      cursor: default;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .product-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 18px 45px rgba(0, 0, 0, 0.18);
+    }
+
+    .product-image {
+      width: 100%;
+      height: 210px;
+      object-fit: cover;
+      border-radius: 18px;
+      margin-bottom: 22px;
+      transition: transform 0.3s ease;
+      box-shadow: 0 6px 18px rgba(255, 215, 0, 0.3);
+    }
+    .product-card:hover .product-image {
+      transform: scale(1.05);
+    }
+
+    .product-name {
+      font-weight: 700;
+      font-size: 1.3rem;
+      margin-bottom: 10px;
+      color: #222;
+      text-align: center;
+      user-select: none;
+    }
+    .product-price {
+      font-weight: 600;
+      font-size: 1.1rem;
+      margin-bottom: 20px;
+      color: #FFD700;
+      user-select: none;
+    }
+
+    .btn-buy {
+      width: 100%;
+      padding: 14px 0;
+      border: none;
+      border-radius: 14px;
+      background: linear-gradient(90deg, #FFD700, #E6C200);
+      color: #222;
+      font-weight: 700;
+      font-size: 1.1rem;
+      letter-spacing: 1px;
+      cursor: pointer;
+      box-shadow: 0 10px 25px rgba(255, 215, 0, 0.4);
+      transition: background 0.3s ease;
+      user-select: none;
+    }
+    .btn-buy:hover {
+      background: linear-gradient(90deg, #E6C200, #FFD700);
+    }
+
+    /* 75% OFF badge */
+    .offer-badge {
+      position: absolute;
+      top: 18px;
+      right: 18px;
+      background: #ff004c;
       color: #fff;
-      min-height: 100vh;
+      font-weight: 700;
+      font-size: 0.9rem;
+      padding: 7px 14px;
+      border-radius: 30px;
+      box-shadow: 0 0 15px #ff004ccc;
+      user-select: none;
+      letter-spacing: 0.8px;
+    }
+
+    /* WhatsApp floating button */
+    #whatsappBtn {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      background: #25d366;
+      width: 58px;
+      height: 58px;
+      border-radius: 50%;
       display: flex;
       justify-content: center;
       align-items: center;
-      padding: 20px;
-    }
-    #admin-lock {
-      max-width: 400px;
-      background: rgba(255, 255, 255, 0.1);
-      padding: 30px;
-      border-radius: 12px;
-      box-shadow: 0 0 15px rgba(0,0,0,0.5);
-      text-align: center;
-    }
-    #admin-lock h2 {
-      margin-bottom: 20px;
-      font-weight: 700;
-      font-size: 1.8rem;
-      letter-spacing: 2px;
-    }
-    #adminPass {
-      width: 100%;
-      padding: 12px 15px;
-      border-radius: 6px;
-      border: none;
-      font-size: 1.1rem;
-      margin-bottom: 20px;
-      outline: none;
-    }
-    #submitBtn {
-      width: 100%;
-      padding: 12px;
-      background: #ff3c78;
-      border: none;
-      border-radius: 6px;
-      color: white;
-      font-weight: 700;
-      font-size: 1.2rem;
+      box-shadow: 0 6px 15px rgba(37, 211, 102, 0.5);
       cursor: pointer;
       transition: background 0.3s ease;
+      z-index: 9999;
     }
-    #submitBtn:hover {
-      background: #e83265;
+    #whatsappBtn:hover {
+      background: #1ebe57;
+    }
+    #whatsappBtn svg {
+      width: 28px;
+      height: 28px;
+      fill: white;
     }
 
-    #mainSite {
-      display: none;
-      width: 100%;
-      max-width: 1200px;
-      background: #121214;
-      border-radius: 12px;
-      padding: 30px;
-      box-shadow: 0 0 30px rgba(255, 60, 120, 0.5);
-    }
-    #mainSite h1 {
-      font-size: 2.8rem;
-      text-align: center;
-      margin-bottom: 40px;
-      letter-spacing: 3px;
-      background: linear-gradient(90deg, #ff3c78, #ff80b5);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-    }
-    /* Simple product grid */
-    .product-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit,minmax(220px,1fr));
-      gap: 25px;
-    }
-    .product-card {
-      background: #1f1c2c;
-      border-radius: 10px;
-      padding: 15px;
-      box-shadow: 0 0 10px rgba(255, 60, 120, 0.3);
-      transition: transform 0.3s ease;
-    }
-    .product-card:hover {
-      transform: translateY(-8px);
-      box-shadow: 0 0 20px rgba(255, 60, 120, 0.7);
-    }
-    .product-image {
-      width: 100%;
-      height: 180px;
-      border-radius: 8px;
-      object-fit: cover;
-      margin-bottom: 15px;
-    }
-    .product-name {
-      font-size: 1.2rem;
-      font-weight: 700;
-      margin-bottom: 8px;
-    }
-    .product-price {
-      color: #ff3c78;
-      font-weight: 700;
-      font-size: 1.1rem;
-      margin-bottom: 10px;
-    }
-    .btn-buy {
-      background: #ff3c78;
-      color: white;
-      border: none;
-      padding: 10px 15px;
-      border-radius: 6px;
-      cursor: pointer;
-      font-weight: 700;
-      width: 100%;
-      transition: background 0.3s ease;
-      font-size: 1rem;
-    }
-    .btn-buy:hover {
-      background: #e83265;
-    }
+    /* Footer */
     footer {
-      margin-top: 50px;
       text-align: center;
+      color: #888;
       font-size: 0.9rem;
-      color: #aaa;
+      margin-top: 120px;
+      letter-spacing: 0.8px;
+      user-select: none;
+    }
+
+    /* Responsive */
+    @media (max-width: 480px) {
+      #mainSite {
+        margin: 40px 15px 80px;
+        padding: 0 10px;
+      }
+      .product-grid {
+        grid-template-columns: 1fr;
+        gap: 30px;
+      }
+      #mainSite h1 {
+        font-size: 2.6rem;
+        letter-spacing: 3px;
+      }
     }
   </style>
 </head>
 <body>
 
-  <div id="admin-lock">
-    <h2>Enter Admin Password</h2>
-    <input type="password" id="adminPass" placeholder="Password" autocomplete="off" />
-    <button id="submitBtn" onclick="checkPass()">Unlock</button>
-  </div>
-
   <div id="mainSite">
-    <h1>Welcome to SnitchX Premium Store</h1>
-    <div class="product-grid" id="productGrid">
-      <!-- Products will load here -->
-    </div>
+    <h1>SnitchX</h1>
+    <div class="product-grid" id="productGrid"></div>
     <footer>© 2025 SnitchX. All rights reserved.</footer>
   </div>
 
+  <div id="whatsappBtn" onclick="openWhatsApp()" title="Contact on WhatsApp">
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 24 24"
+      >
+      <path
+        d="M20.52 3.48A11.79 11.79 0 0012 0C5.37 0 0 5.37 0 12a11.9 11.9 0 001.92 6.57L0 24l5.55-1.82A11.86 11.86 0 0012 24c6.63 0 12-5.37 12-12a11.9 11.9 0 00-3.48-8.52zM12 22a10 10 0 01-5.23-1.5l-.37-.22-3.29 1.08 1.08-3.27-.23-.38A10 10 0 1122 12a10 10 0 01-10 10zm5.28-7.1l-1.03-.51a.56.56 0 00-.56.1l-.8.82a5.52 5.52 0 01-2.7-2.7l.82-.8a.56.56 0 00.1-.56l-.5-1.03a.56.56 0 00-.95-.22L9.43 12a3.39 3.39 0 001.43 3.43 3.62 3.62 0 003.3 1.07.56.56 0 00.49-.54v-.02a.56.56 0 00-.16-.4z"
+      />
+    </svg>
+  </div>
+
   <script>
-    const ADMIN_PASSWORD = 'Mishty.12';
-
-    function checkPass() {
-      const input = document.getElementById('adminPass').value;
-      if(input === ADMIN_PASSWORD) {
-        document.getElementById('admin-lock').style.display = 'none';
-        document.getElementById('mainSite').style.display = 'block';
-        loadProducts();
-      } else {
-        alert('Wrong password! Try again.');
-      }
-    }
-
-    // Example product data
     const products = [
-      {id: 1, name: "Nike Running Shoes", price: 2500, img: "https://images.unsplash.com/photo-1600185364664-e1f9112ed98d?auto=format&fit=crop&w=500&q=80"},
-      {id: 2, name: "Rolex Watch", price: 15000, img: "https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&w=500&q=80"},
-      {id: 3, name: "Luxury Perfume", price: 6000, img: "https://images.unsplash.com/photo-1536528087229-7a2474a7e60c?auto=format&fit=crop&w=500&q=80"},
-      {id: 4, name: "Adidas Sneakers", price: 3200, img: "https://images.unsplash.com/photo-1519744792095-2f2205e87b6f?auto=format&fit=crop&w=500&q=80"},
-      {id: 5, name: "Premium Sunglasses", price: 4800, img: "https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=500&q=80"},
-      {id: 6, name: "Roadster Jacket", price: 4000, img: "https://images.unsplash.com/photo-1541099649105-f69ad21f3246?auto=format&fit=crop&w=500&q=80"},
-      {id: 7, name: "Imported Cologne", price: 5200, img: "https://images.unsplash.com/photo-1556228721-63a9ccdd1c82?auto=format&fit=crop&w=500&q=80"},
-      {id: 8, name: "Luxury T-Shirt", price: 1800, img: "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?auto=format&fit=crop&w=500&q=80"},
+      // Shoes
+      { name: "Nike Air Zoom Pegasus", price: 7500, img: "https://images.unsplash.com/photo-1600180758897-858d94736562?auto=format&fit=crop&w=400&q=80" },
+      { name: "Adidas Ultraboost 22", price: 9200, img: "https://images.unsplash.com/photo-1617424167154-3a6781a29004?auto=format&fit=crop&w=400&q=80" },
+      { name: "Roadster Casual Sneakers", price: 6200, img: "https://images.unsplash.com/photo-1519741491935-88d931e2f748?auto=format&fit=crop&w=400&q=80" },
+
+      // Watches
+      { name: "Rolex Submariner", price: 125000, img: "https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=400&q=80" },
+      { name: "Patek Philippe Nautilus", price: 210000, img: "https://images.unsplash.com/photo-1519160558534-0ac1f0dc4f32?auto=format&fit=crop&w=400&q=80" },
+
+      // Perfumes
+      { name: "Creed Aventus", price: 18000, img: "https://images.unsplash.com/photo-1512295767273-acb43b48d8a1?auto=format&fit=crop&w=400&q=80" },
+      { name: "Tom Ford Black Orchid", price: 15000, img: "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?auto=format&fit=crop&w=400&q=80" },
+
+      // Clothes
+      { name: "Gucci Leather Jacket", price: 68000, img: "https://images.unsplash.com/photo-1520962913663-7a8e51dddc32?auto=format&fit=crop&w=400&q=80" },
+      { name: "Louis Vuitton Shirt", price: 56000, img: "https://images.unsplash.com/photo-1562158074-94ecf3d1a5b7?auto=format&fit=crop&w=400&q=80" }
     ];
 
-    function loadProducts() {
-      const grid = document.getElementById('productGrid');
-      grid.innerHTML = '';
+    const productGrid = document.getElementById('productGrid');
 
-      products.forEach(prod => {
-        // 75% OFF badge for products price > 6000
-        const offerBadge = prod.price > 6000 ? '<div style="position:absolute; top:10px; right:10px; background:#ff3c78; color:#fff; padding: 5px 8px; font-weight:700; font-size:0.8rem; border-radius:5px;">75% OFF</div>' : '';
+    products.forEach(product => {
+      const card = document.createElement('div');
+      card.classList.add('product-card');
 
-        const productHTML = `
-          <div class="product-card" style="position:relative;">
-            ${offerBadge}
-            <img class="product-image" src="${prod.img}" alt="${prod.name}" />
-            <div class="product-name">${prod.name}</div>
-            <div class="product-price">₹${prod.price.toLocaleString()}</div>
-            <button class="btn-buy" onclick="orderViaWhatsApp('${prod.name}', ${prod.price})">Order Now</button>
-          </div>
-        `;
-        grid.insertAdjacentHTML('beforeend', productHTML);
-      });
-    }
+      if(product.price > 6000){
+        const badge = document.createElement('div');
+        badge.classList.add('offer-badge');
+        badge.innerText = "75% OFF";
+        card.appendChild(badge);
+      }
 
-    function orderViaWhatsApp(name, price) {
-      const phone = '8793727113'; // Your WhatsApp number
-      const message = encodeURIComponent(`Hello, I want to order the product: ${name} priced at ₹${price.toLocaleString()}. Please provide further details.`);
-      window.open(`https://wa.me/${phone}?text=${message}`, '_blank');
+      const img = document.createElement('img');
+      img.src = product.img;
+      img.alt = product.name;
+      img.classList.add('product-image');
+      card.appendChild(img);
+
+      const name = document.createElement('div');
+      name.classList.add('product-name');
+      name.textContent = product.name;
+      card.appendChild(name);
+
+      const price = document.createElement('div');
+      price.classList.add('product-price');
+
+      if(product.price > 6000){
+        const discounted = product.price * 0.25;
+        price.textContent = `₹${discounted.toLocaleString('en-IN')} (Original ₹${product.price.toLocaleString('en-IN')})`;
+      } else {
+        price.textContent = `₹${product.price.toLocaleString('en-IN')}`;
+      }
+      card.appendChild(price);
+
+      const btn = document.createElement('button');
+      btn.classList.add('btn-buy');
+      btn.textContent = "Buy Now";
+      btn.onclick = () => {
+        alert(`Order placed for ${product.name} at price ₹${product.price}`);
+      };
+      card.appendChild(btn);
+
+      productGrid.appendChild(card);
+    });
+
+    function openWhatsApp() {
+      window.open('https://wa.me/8793727113', '_blank');
     }
   </script>
-
 </body>
 </html>
