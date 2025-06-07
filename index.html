@@ -1,251 +1,285 @@
-<!DOCTYPE html><html lang="en">
+<!DOCTYPE html>
+<html lang="en" >
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>SnitchX - OG Streetwear Brand</title>
-  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600&family=Urbanist:wght@400;600&display=swap" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>SnitchX Luxury Collection with Dynamic Offers</title>
   <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
+    /* Base styles */
     body {
-      font-family: 'Urbanist', sans-serif;
-      background: #000;
-      color: #fff;
-      overflow-x: hidden;
-    }
-    header {
-      background: #111;
+      font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+      background: #f9f9f9;
+      color: #222;
+      line-height: 1.5;
       padding: 40px 20px;
-      text-align: center;
-      font-family: 'Orbitron', sans-serif;
-      font-size: 3rem;
-      letter-spacing: 0.2em;
-      color: #0f0;
-      text-shadow: 0 0 10px #0f0;
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-    }
-    nav {
-      background: #0a0a0a;
-      display: flex;
-      justify-content: center;
-      gap: 15px;
-      padding: 10px 0;
-      border-bottom: 2px solid #111;
-      position: sticky;
-      top: 100px;
-      z-index: 999;
-    }
-    nav a {
-      color: #0f0;
-      text-decoration: none;
-      font-weight: bold;
-      text-transform: uppercase;
-      font-size: 0.95rem;
-    }
-    .hero {
-      background: url('https://i.imgur.com/LS14MwH.jpeg') center/cover no-repeat;
-      height: 90vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      color: #fff;
-      flex-direction: column;
-    }
-    .hero h1 {
-      font-size: 3.5rem;
-      background: rgba(0,0,0,0.7);
-      padding: 20px;
-      font-family: 'Orbitron', sans-serif;
-      border: 2px solid #0f0;
-    }
-    .hero p {
-      font-size: 1.2rem;
-      margin-top: 15px;
-    }
-    .banner {
-      text-align: center;
-      background: #0f0;
-      color: #000;
-      padding: 10px;
-      font-weight: bold;
-      letter-spacing: 2px;
-      font-size: 1.2rem;
-    }
-    section {
-      padding: 60px 30px;
-    }
-    section h2 {
-      font-size: 2rem;
-      text-align: center;
-      margin-bottom: 40px;
-      text-transform: uppercase;
-      color: #0f0;
-    }
-    .product-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 30px;
       max-width: 1200px;
       margin: auto;
     }
-    .product-card {
-      background: rgba(255,255,255,0.05);
-      border: 1px solid #0f0;
-      border-radius: 15px;
-      overflow: hidden;
-      transition: 0.3s ease;
-    }
-    .product-card:hover {
-      transform: scale(1.03);
-      box-shadow: 0 0 20px #0f0;
-    }
-    .product-card img {
-      width: 100%;
-      height: 250px;
-      object-fit: cover;
-    }
-    .product-card .info {
-      padding: 20px;
-      text-align: center;
-    }
-    .product-card .info h3 {
-      font-size: 1.3rem;
+
+    .logo-gradient {
+      font-family: 'Segoe UI Black', 'Arial Black', sans-serif;
+      font-size: 4rem;
+      font-weight: 900;
+      background: linear-gradient(90deg, #FF5500, #FFAA33, #FF5500);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      color: transparent;
+      letter-spacing: 4px;
       text-transform: uppercase;
-    }
-    .product-card .info p {
-      margin-top: 10px;
-      font-size: 1.1rem;
-      font-weight: bold;
-    }
-    .cart-btn, .whatsapp-btn {
-      display: block;
-      margin: 20px auto 0;
-      padding: 10px 20px;
-      background: #0f0;
-      color: #000;
-      font-weight: bold;
-      border: none;
-      cursor: pointer;
-      border-radius: 10px;
-    }
-    #cartSection {
-      background: #111;
-      padding: 40px 20px;
-      max-width: 600px;
-      margin: auto;
-      margin-top: 40px;
-      border: 1px solid #0f0;
-      border-radius: 15px;
-    }
-    #cartItems p {
-      font-size: 1rem;
-      margin-bottom: 10px;
-    }
-    footer {
+      user-select: none;
+      text-shadow: 0 0 10px rgba(255, 85, 0, 0.8);
       text-align: center;
-      padding: 40px 20px;
+      margin-bottom: 50px;
+    }
+
+    .category {
+      margin-bottom: 60px;
+    }
+
+    .category h2 {
+      font-size: 2rem;
+      border-bottom: 3px solid #ff5500;
+      padding-bottom: 12px;
+      margin-bottom: 25px;
+      font-weight: 700;
+      letter-spacing: 1.3px;
+      color: #333;
+    }
+
+    .product-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fit,minmax(250px,1fr));
+      gap: 30px;
+      list-style: none;
+    }
+
+    .product-list li {
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0 4px 14px rgba(0,0,0,0.1);
+      padding: 25px 20px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      position: relative;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      cursor: default;
+    }
+
+    .product-list li:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 10px 30px rgba(255, 85, 0, 0.25);
+    }
+
+    .product-name {
+      font-size: 1.25rem;
+      font-weight: 700;
+      margin-bottom: 8px;
+      color: #ff5500;
+      font-family: 'Segoe UI Semibold', Arial, sans-serif;
+    }
+
+    .product-desc {
       font-size: 0.9rem;
-      background: #111;
-      color: #999;
-      margin-top: 50px;
+      color: #666;
+      margin-bottom: 20px;
+      flex-grow: 1;
+    }
+
+    .product-price {
+      font-weight: 800;
+      font-size: 1.15rem;
+      color: #222;
+      letter-spacing: 0.05em;
+      font-family: 'Courier New', Courier, monospace;
+    }
+
+    /* Offer badge */
+    .offer-badge {
+      position: absolute;
+      top: 15px;
+      right: 15px;
+      background-color: #E63946;
+      color: white;
+      padding: 6px 14px;
+      font-weight: 700;
+      font-size: 0.85rem;
+      border-radius: 50px;
+      box-shadow: 0 3px 8px rgba(230, 57, 70, 0.6);
+      user-select: none;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      z-index: 10;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    footer {
+      margin-top: 80px;
+      text-align: center;
+    }
+
+    .whatsapp-btn {
+      display: inline-block;
+      background: #25D366;
+      color: white;
+      padding: 15px 35px;
+      font-size: 1.3rem;
+      font-weight: 700;
+      border-radius: 40px;
+      text-decoration: none;
+      box-shadow: 0 5px 15px rgba(37,211,102,0.4);
+      transition: background-color 0.3s ease;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    .whatsapp-btn:hover {
+      background-color: #1da851;
+    }
+
+    @media (max-width: 600px) {
+      .logo-gradient {
+        font-size: 2.5rem;
+        margin-bottom: 30px;
+      }
+      .category h2 {
+        font-size: 1.5rem;
+      }
+      .whatsapp-btn {
+        font-size: 1.1rem;
+        padding: 12px 28px;
+      }
     }
   </style>
 </head>
 <body>
-  <header>SNITCHX</header>
-  <nav>
-    <a href="#shoes">Shoes</a>
-    <a href="#watches">Watches</a>
-    <a href="#clothes">Clothes</a>
-    <a href="#perfumes">Perfumes</a>
-  </nav>
-  <div class="hero">
-    <h1>LIMITED DROPS. MAXIMUM DRIP.</h1>
-    <p>SnitchX OG Premium Streetwear</p>
-  </div>
-  <div class="banner">🔥 Buy 2 Get 1 Free 🔥 Only on SNITCHX.in</div>  <section id="shoes">
+  <h1 class="logo-gradient">SnitchX</h1>
+
+  <section class="category">
     <h2>Shoes</h2>
-    <div class="product-grid">
-      <div class="product-card">
-        <img src="https://i.imgur.com/F6pXw1G.jpg" />
-        <div class="info">
-          <h3>OG Sneakers</h3>
-          <p>₹3200</p>
-          <button class="cart-btn" onclick="addToCart('OG Sneakers', 3200)">Add to Cart</button>
-        </div>
-      </div>
-    </div>
-  </section>  <section id="watches">
+    <ul class="product-list">
+      <li>
+        <div class="product-name">Nike Air Max</div>
+        <div class="product-desc">Exclusive Running Shoes</div>
+        <div class="product-price">₹ 1,500</div>
+      </li>
+      <li>
+        <div class="product-name">Adidas Ultraboost</div>
+        <div class="product-desc">High Performance Sneakers</div>
+        <div class="product-price">₹ 2,200</div>
+      </li>
+      <li>
+        <div class="product-name">Roadster Classic</div>
+        <div class="product-desc">Premium Leather Sneakers</div>
+        <div class="product-price">₹ 3,800</div>
+      </li>
+    </ul>
+  </section>
+
+  <section class="category">
     <h2>Watches</h2>
-    <div class="product-grid">
-      <div class="product-card">
-        <img src="https://i.imgur.com/tHYK5rk.jpg" />
-        <div class="info">
-          <h3>Gold Dial</h3>
-          <p>₹7800</p>
-          <button class="cart-btn" onclick="addToCart('Gold Dial Watch', 7800)">Add to Cart</button>
-        </div>
-      </div>
-    </div>
-  </section>  <section id="clothes">
-    <h2>Clothes</h2>
-    <div class="product-grid">
-      <div class="product-card">
-        <img src="https://i.imgur.com/DtG2SnZ.jpg" />
-        <div class="info">
-          <h3>OG Hoodie</h3>
-          <p>₹2200</p>
-          <button class="cart-btn" onclick="addToCart('OG Hoodie', 2200)">Add to Cart</button>
-        </div>
-      </div>
-    </div>
-  </section>  <section id="perfumes">
+    <ul class="product-list">
+      <li>
+        <div class="product-name">Rolex Submariner</div>
+        <div class="product-desc">Luxury Swiss Watch</div>
+        <div class="product-price">₹ 9,000</div>
+      </li>
+      <li>
+        <div class="product-name">Patek Philippe Nautilus</div>
+        <div class="product-desc">Iconic Timepiece</div>
+        <div class="product-price">₹ 15,000</div>
+      </li>
+      <li>
+        <div class="product-name">Audemars Piguet Royal Oak</div>
+        <div class="product-desc">High-End Mechanical Watch</div>
+        <div class="product-price">₹ 18,000</div>
+      </li>
+      <li>
+        <div class="product-name">Omega Seamaster</div>
+        <div class="product-desc">Professional Diver Watch</div>
+        <div class="product-price">₹ 8,500</div>
+      </li>
+    </ul>
+  </section>
+
+  <section class="category">
     <h2>Perfumes</h2>
-    <div class="product-grid">
-      <div class="product-card">
-        <img src="https://i.imgur.com/qcBv7d0.jpg" />
-        <div class="info">
-          <h3>Elite Perfume</h3>
-          <p>₹2400</p>
-          <button class="cart-btn" onclick="addToCart('Elite Perfume', 2400)">Add to Cart</button>
-        </div>
-      </div>
-    </div>
-  </section>  <section id="cartSection">
-    <h2>Your Cart</h2>
-    <div id="cartItems"></div>
-    <button class="whatsapp-btn" onclick="sendWhatsAppOrder()">Order on WhatsApp</button>
-  </section>  <footer>
-    &copy; 2025 SnitchX by MidowWebDev | Follow @snitchx on IG | Powered by OG Energy
-  </footer>  <script>
-    const cart = [];
-    function addToCart(name, price) {
-      cart.push({ name, price });
-      displayCart();
-    }
-    function displayCart() {
-      const cartItems = document.getElementById('cartItems');
-      cartItems.innerHTML = '';
-      let total = 0;
-      cart.forEach(item => {
-        cartItems.innerHTML += `<p>1× ${item.name} – ₹${item.price}</p>`;
-        total += item.price;
+    <ul class="product-list">
+      <li>
+        <div class="product-name">Creed Aventus</div>
+        <div class="product-desc">Luxury Fragrance</div>
+        <div class="product-price">₹ 18,000</div>
+      </li>
+      <li>
+        <div class="product-name">Tom Ford Black Orchid</div>
+        <div class="product-desc">Exclusive Scent</div>
+        <div class="product-price">₹ 15,500</div>
+      </li>
+      <li>
+        <div class="product-name">Chanel Bleu de Chanel</div>
+        <div class="product-desc">Elegant & Timeless</div>
+        <div class="product-price">₹ 12,500</div>
+      </li>
+      <li>
+        <div class="product-name">Dior Sauvage</div>
+        <div class="product-desc">Bold & Fresh</div>
+        <div class="product-price">₹ 13,000</div>
+      </li>
+    </ul>
+  </section>
+
+  <section class="category">
+    <h2>Clothes</h2>
+    <ul class="product-list">
+      <li>
+        <div class="product-name">Gucci Leather Jacket</div>
+        <div class="product-desc">Premium Outerwear</div>
+        <div class="product-price">₹ 6,000</div>
+      </li>
+      <li>
+        <div class="product-name">Prada Tailored Suit</div>
+        <div class="product-desc">Elegant Formal Wear</div>
+        <div class="product-price">₹ 7,500</div>
+      </li>
+      <li>
+        <div class="product-name">Burberry Trench Coat</div>
+        <div class="product-desc">Classic Luxury</div>
+        <div class="product-price">₹ 4,200</div>
+      </li>
+      <li>
+        <div class="product-name">Balenciaga Hoodie</div>
+        <div class="product-desc">Streetwear Style</div>
+        <div class="product-price">₹ 2,000</div>
+      </li>
+    </ul>
+  </section>
+
+  <footer>
+    <a href="https://wa.me/8793727113?text=Hi%20I%20want%20to%20order%20from%20SnitchX%20Luxury%20Collection" target="_blank" class="whatsapp-btn" rel="noopener noreferrer">Order via WhatsApp</a>
+  </footer>
+
+  <script>
+    // JS to add 75% OFF badge dynamically to products priced over 6000
+    window.addEventListener('DOMContentLoaded', () => {
+      const products = document.querySelectorAll('.product-list li');
+
+      products.forEach(li => {
+        const priceEl = li.querySelector('.product-price');
+        if (!priceEl) return;
+
+        // Extract numeric price ignoring ₹, commas, spaces
+        let priceText = priceEl.textContent.replace(/[₹,\s]/g, '');
+        let priceNum = parseInt(priceText);
+
+        if (!isNaN(priceNum) && priceNum >= 6000) {
+          // Create badge div
+          const badge = document.createElement('div');
+          badge.classList.add('offer-badge');
+          badge.textContent = '75% OFF';
+          li.appendChild(badge);
+        }
       });
-      cartItems.innerHTML += `<p><strong>Total: ₹${total}</strong></p>`;
-    }
-    function sendWhatsAppOrder() {
-      if (cart.length === 0) return alert('Your cart is empty!');
-      let message = 'Hey! I want to place an order:%0A%0A';
-      let total = 0;
-      cart.forEach(item => {
-        message += `1× ${item.name} – ₹${item.price}%0A`;
-        total += item.price;
-      });
-      message += `%0ATotal: ₹${total}`;
-      const phoneNumber = '917000000000'; // replace with your WhatsApp number
-      window.open(`https://wa.me/${phoneNumber}?text=${message}`, '_blank');
-    }
-  </script></body>
+    });
+  </script>
+</body>
 </html>
