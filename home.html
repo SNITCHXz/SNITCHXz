@@ -1,0 +1,362 @@
+<!-- home.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>SNITCHX - OG Premium Store</title>
+<style>
+  /* Reset & basics */
+  * {
+    box-sizing: border-box;
+  }
+  body {
+    margin: 0; padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: #121212;
+    color: #eee;
+  }
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  /* Header */
+  header {
+    background: linear-gradient(90deg, #000000, #434343);
+    padding: 20px 30px;
+    text-align: center;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.5);
+  }
+  header h1 {
+    font-size: 2.8rem;
+    margin: 0;
+    background: linear-gradient(90deg, #ff6a00, #ee0979);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    letter-spacing: 0.15em;
+  }
+  header p {
+    margin: 5px 0 0 0;
+    font-size: 1rem;
+    opacity: 0.7;
+  }
+
+  /* Main content */
+  main {
+    max-width: 1200px;
+    margin: 40px auto 80px auto;
+    padding: 0 20px;
+  }
+
+  /* Section Titles */
+  section h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    border-bottom: 2px solid #ff3c00;
+    padding-bottom: 8px;
+  }
+
+  /* Products grid */
+  .products-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill,minmax(220px,1fr));
+    gap: 25px;
+  }
+
+  /* Product card */
+  .product-card {
+    background: #1f1f1f;
+    border-radius: 12px;
+    box-shadow: 0 3px 15px rgba(255,60,0,0.3);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.3s ease;
+  }
+  .product-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 5px 25px rgba(255,60,0,0.6);
+  }
+  .product-image {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    border-bottom: 2px solid #ff3c00;
+  }
+  .product-info {
+    padding: 15px 15px 20px;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  .product-name {
+    font-weight: 700;
+    font-size: 1.1rem;
+    margin-bottom: 8px;
+  }
+  .product-brand {
+    font-size: 0.85rem;
+    color: #ff6a00;
+    margin-bottom: 12px;
+    font-style: italic;
+  }
+  .product-price {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #ff3c00;
+  }
+  .old-price {
+    text-decoration: line-through;
+    font-size: 1rem;
+    opacity: 0.5;
+    margin-left: 8px;
+    color: #eee;
+  }
+  .offer-badge {
+    position: absolute;
+    top: 8px;
+    left: 8px;
+    background: #ff3c00;
+    color: white;
+    padding: 5px 10px;
+    font-weight: 700;
+    font-size: 0.85rem;
+    border-radius: 8px;
+    box-shadow: 0 0 10px #ff3c00;
+  }
+  .product-card-wrapper {
+    position: relative;
+  }
+  .btn-order {
+    margin-top: 12px;
+    padding: 12px;
+    background: linear-gradient(90deg, #ff3c00, #ee0979);
+    color: white;
+    font-weight: 700;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+    text-align: center;
+  }
+  .btn-order:hover {
+    background: linear-gradient(90deg, #ee0979, #ff3c00);
+  }
+
+  /* Footer */
+  footer {
+    text-align: center;
+    padding: 20px 10px;
+    background: #000;
+    color: #777;
+    font-size: 0.9rem;
+    letter-spacing: 0.1em;
+  }
+
+  /* Responsive */
+  @media(max-width: 600px) {
+    .products-grid {
+      grid-template-columns: repeat(auto-fill,minmax(160px,1fr));
+    }
+    header h1 {
+      font-size: 2rem;
+    }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>SNITCHX</h1>
+  <p>OG Premium Shopping Store</p>
+</header>
+
+<main>
+
+  <!-- Shoes Section -->
+  <section id="shoes">
+    <h2>Shoes</h2>
+    <div class="products-grid" id="shoes-grid">
+      <!-- Shoes products added by JS -->
+    </div>
+  </section>
+
+  <!-- Watches Section -->
+  <section id="watches">
+    <h2>Watches</h2>
+    <div class="products-grid" id="watches-grid">
+      <!-- Watches products added by JS -->
+    </div>
+  </section>
+
+  <!-- Perfumes Section -->
+  <section id="perfumes">
+    <h2>Perfumes</h2>
+    <div class="products-grid" id="perfumes-grid">
+      <!-- Perfumes products added by JS -->
+    </div>
+  </section>
+
+  <!-- Clothes Section -->
+  <section id="clothes">
+    <h2>Clothes</h2>
+    <div class="products-grid" id="clothes-grid">
+      <!-- Clothes products added by JS -->
+    </div>
+  </section>
+
+  <!-- Specs Section -->
+  <section id="specs">
+    <h2>Specs</h2>
+    <div class="products-grid" id="specs-grid">
+      <!-- Specs products added by JS -->
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  &copy; 2025 SNITCHX | Made with ❤️ by YourName
+</footer>
+
+<script>
+  // Product data arrays
+  const shoes = [
+    {name: 'Nike Air Max 270', brand: 'Nike', price: 1500, img: 'images/shoes1.jpg'},
+    {name: 'Adidas Ultraboost', brand: 'Adidas', price: 2000, img: 'images/shoes2.jpg'},
+    {name: 'Roadster Casuals', brand: 'Roadster', price: 4000, img: 'images/shoes3.jpg'},
+    // Add up to 10 sample shoes here
+  ];
+
+  const watches = [
+    {name: 'Rolex Submariner', brand: 'Rolex', price: 9000, img: 'images/watch1.jpg'},
+    {name: 'Omega Seamaster', brand: 'Omega', price: 8500, img: 'images/watch2.jpg'},
+    {name: 'Tag Heuer Carrera', brand: 'Tag Heuer', price: 7500, img: 'images/watch3.jpg'},
+    // Add more watches
+  ];
+
+  const perfumes = [
+    {name: 'Chanel No. 5', brand: 'Chanel', price: 6500, img: 'images/perfume1.jpg'},
+    {name: 'Dior Sauvage', brand: 'Dior', price: 7000, img: 'images/perfume2.jpg'},
+    {name: 'Gucci Bloom', brand: 'Gucci', price: 5800, img: 'images/perfume3.jpg'},
+    // Add more perfumes
+  ];
+
+  const clothes = [
+    {name: 'Gucci Leather Jacket', brand: 'Gucci', price: 6000, img: 'images/clothes1.jpg'},
+    {name: 'Prada Formal Shirt', brand: 'Prada', price: 5500, img: 'images/clothes2.jpg'},
+    {name: 'Armani Trousers', brand: 'Armani', price: 4800, img: 'images/clothes3.jpg'},
+    // Add more clothes
+  ];
+
+  const specs = [
+    {name: 'Ray-Ban Aviator', brand: 'Ray-Ban', price: 3500, img: 'images/specs1.jpg'},
+    {name: 'Oakley Sports', brand: 'Oakley', price: 3000, img: 'images/specs2.jpg'},
+    {name: 'Prada Classic', brand: 'Prada', price: 4200, img: 'images/specs3.jpg'},
+    // Add more specs
+  ];
+
+  function formatPrice(price) {
+    return '₹' + price.toLocaleString();
+  }
+
+  function createProductCard(product) {
+    const cardWrapper = document.createElement('div');
+    cardWrapper.className = 'product-card-wrapper';
+
+    const card = document.createElement('div');
+    card.className = 'product-card';
+
+    // Image
+    const img = document.createElement('img');
+    img.src = product.img;
+    img.alt = product.name;
+    img.className = 'product-image';
+    card.appendChild(img);
+
+    // Info div
+    const info = document.createElement('div');
+    info.className = 'product-info';
+
+    // Name
+    const name = document.createElement('div');
+    name.className = 'product-name';
+    name.textContent = product.name;
+    info.appendChild(name);
+
+    // Brand
+    const brand = document.createElement('div');
+    brand.className = 'product-brand';
+    brand.textContent = product.brand;
+    info.appendChild(brand);
+
+    // Price and offer
+    const priceDiv = document.createElement('div');
+    priceDiv.style.display = 'flex';
+    priceDiv.style.alignItems = 'center';
+
+    const price = document.createElement('div');
+    price.className = 'product-price';
+
+    if (product.price > 6000) {
+      // 75% off
+      const discountedPrice = Math.round(product.price * 0.25);
+      price.textContent = formatPrice(discountedPrice);
+
+      const oldPrice = document.createElement('div');
+      oldPrice.className = 'old-price';
+      oldPrice.textContent = formatPrice(product.price);
+
+      priceDiv.appendChild(price);
+      priceDiv.appendChild(oldPrice);
+
+      // Offer badge
+      const offer = document.createElement('div');
+      offer.className = 'offer-badge';
+      offer.textContent = '75% OFF';
+      cardWrapper.appendChild(offer);
+    } else {
+      price.textContent = formatPrice(product.price);
+      priceDiv.appendChild(price);
+    }
+    info.appendChild(priceDiv);
+
+    // Order button (WhatsApp)
+    const btn = document.createElement('a');
+    btn.className = 'btn-order';
+    btn.href = `https://wa.me/8793727113?text=Hello,%20I%20want%20to%20order%20${encodeURIComponent(product.name)}%20from%20SNITCHX.`;
+    btn.target = '_blank';
+    btn.rel = 'noopener noreferrer';
+    btn.textContent = 'Order via WhatsApp';
+    info.appendChild(btn);
+
+    card.appendChild(info);
+    cardWrapper.appendChild(card);
+    return cardWrapper;
+  }
+
+  // Render products in sections
+  function renderProducts() {
+    const shoesGrid = document.getElementById('shoes-grid');
+    const watchesGrid = document.getElementById('watches-grid');
+    const perfumesGrid = document.getElementById('perfumes-grid');
+    const clothesGrid = document.getElementById('clothes-grid');
+    const specsGrid = document.getElementById('specs-grid');
+
+    shoes.forEach(p => shoesGrid.appendChild(createProductCard(p)));
+    watches.forEach(p => watchesGrid.appendChild(createProductCard(p)));
+    perfumes.forEach(p => perfumesGrid.appendChild(createProductCard(p)));
+    clothes.forEach(p => clothesGrid.appendChild(createProductCard(p)));
+    specs.forEach(p => specsGrid.appendChild(createProductCard(p)));
+  }
+
+  document.addEventListener('DOMContentLoaded', renderProducts);
+</script>
+
+</body>
+</html>
