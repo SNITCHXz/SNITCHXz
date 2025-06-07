@@ -1,260 +1,115 @@
-<!DOCTYPE html>
-<html lang="en" >
+<!DOCTYPE html><html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>SNITCHX | OG Streetwear Store</title>
-  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Oswald:wght@400;700&display=swap" rel="stylesheet" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SnitchX OG Premium Streetwear</title>
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Oswald:wght@400;700&display=swap" rel="stylesheet">
   <style>
-    body {
-      background: #000;
-      color: #fff;
-      font-family: 'Oswald', sans-serif;
-      margin: 0; padding: 0;
-      min-height: 100vh;
-      display: flex; flex-direction: column;
-      user-select: none;
-    }
-    header {
-      background: #111;
-      padding: 25px 0;
-      font-family: 'Anton', sans-serif;
-      font-size: 3rem;
-      text-align: center;
-      letter-spacing: 0.3em;
-      border-bottom: 3px solid #fff;
-      text-transform: uppercase;
-    }
-    nav.categories {
-      display: flex;
-      justify-content: center;
-      gap: 20px;
-      padding: 20px 10px;
-      flex-wrap: wrap;
-      background: #111;
-      border-bottom: 2px solid #222;
-    }
-    nav.categories button {
-      background: transparent;
-      border: 2px solid #fff;
-      color: #fff;
-      padding: 10px 25px;
-      font-weight: 700;
-      font-size: 1rem;
-      border-radius: 50px;
-      cursor: pointer;
-      transition: background 0.3s ease, color 0.3s ease;
-      text-transform: uppercase;
-    }
-    nav.categories button.active,
-    nav.categories button:hover {
-      background: #fff;
-      color: #000;
-      font-weight: 900;
-      transform: scale(1.1);
-    }
-    main.product-grid {
-      max-width: 1100px;
-      margin: 30px auto;
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-      gap: 30px;
-      padding: 0 15px;
-    }
-    article.product {
-      background: #111;
-      border: 2px solid #fff;
-      border-radius: 12px;
-      display: flex;
-      flex-direction: column;
-      overflow: hidden;
-      cursor: pointer;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
-    article.product:hover {
-      transform: translateY(-10px);
-      box-shadow: 0 0 25px #fff;
-      z-index: 10;
-    }
-    article.product img {
-      width: 100%;
-      height: 200px;
-      object-fit: cover;
-      user-select: none;
-    }
-    article.product h3 {
-      font-family: 'Anton', sans-serif;
-      font-size: 1.5rem;
-      padding: 15px 15px 5px;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: #fff;
-    }
-    article.product p.price {
-      font-weight: 700;
-      font-size: 1.2rem;
-      padding: 0 15px 15px;
-      color: #ddd;
-      letter-spacing: 0.05em;
-    }
-    article.product button.add-btn {
-      margin: 0 15px 20px;
-      background: transparent;
-      color: #fff;
-      border: 2px solid #fff;
-      border-radius: 40px;
-      padding: 12px 0;
-      font-weight: 700;
-      font-size: 1.1rem;
-      cursor: pointer;
-      text-transform: uppercase;
-      letter-spacing: 0.1em;
-      transition: background 0.3s ease, color 0.3s ease;
-      user-select: none;
-    }
-    article.product button.add-btn:hover {
-      background: #fff;
-      color: #000;
-      font-weight: 900;
-      transform: scale(1.05);
-    }
-    a.cart-link {
-      position: fixed;
-      top: 20px;
-      right: 20px;
-      background: #fff;
-      color: #000;
-      padding: 15px 30px;
-      font-weight: 900;
-      border-radius: 50px;
-      font-size: 1.2rem;
-      text-decoration: none;
-      user-select: none;
-      box-shadow: 0 5px 15px rgba(255,255,255,0.7);
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      transition: background 0.3s ease, box-shadow 0.3s ease;
-      z-index: 1000;
-    }
-    a.cart-link:hover {
-      background: #ddd;
-      box-shadow: 0 8px 25px rgba(255,255,255,0.9);
-      transform: scale(1.1);
-    }
-    a.cart-link i {
-      font-size: 1.5rem;
-    }
-    footer {
-      background: #111;
-      color: #666;
-      text-align: center;
-      padding: 18px 0;
-      font-size: 0.9rem;
-      letter-spacing: 0.1em;
-      user-select: none;
-      margin-top: auto;
-    }
-
-    @media (max-width: 600px) {
-      header {
-        font-size: 2.2rem;
-        padding: 20px 10px;
-      }
-      nav.categories {
-        gap: 12px;
-        padding: 15px 10px;
-      }
-      nav.categories button {
-        padding: 8px 18px;
-        font-size: 0.9rem;
-      }
-      main.product-grid {
-        grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-        gap: 18px;
-      }
-      article.product img {
-        height: 150px;
-      }
-      article.product h3 {
-        font-size: 1.2rem;
-        padding: 10px 10px 4px;
-      }
-      article.product p.price {
-        font-size: 1rem;
-        padding: 0 10px 10px;
-      }
-      article.product button.add-btn {
-        margin: 0 10px 15px;
-        font-size: 1rem;
-      }
-      a.cart-link {
-        font-size: 1rem;
-        padding: 12px 20px;
-      }
-      footer {
-        font-size: 0.8rem;
-      }
-    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'Oswald', sans-serif; background: #000; color: #fff; }
+    header { background: #111; padding: 30px 0; text-align: center; font-family: 'Anton', sans-serif; font-size: 3rem; letter-spacing: 0.15em; border-bottom: 2px solid #444; position: sticky; top: 0; z-index: 999; }
+    nav { background: #222; padding: 10px 20px; display: flex; justify-content: center; gap: 15px; flex-wrap: wrap; position: sticky; top: 90px; z-index: 998; }
+    nav a { color: #ff0; text-decoration: none; font-weight: bold; text-transform: uppercase; font-size: 0.95rem; }
+    section { padding: 60px 30px; }
+    section h2 { font-size: 2.5rem; margin-bottom: 30px; text-transform: uppercase; text-align: center; letter-spacing: 0.1em; }
+    .product-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 30px; max-width: 1200px; margin: auto; }
+    .product-card { background: #111; border: 2px solid #fff; border-radius: 15px; overflow: hidden; transition: transform 0.3s ease, box-shadow 0.3s ease; position: relative; }
+    .product-card:hover { transform: translateY(-8px); box-shadow: 0 0 20px #fff; }
+    .product-card img { width: 100%; height: 220px; object-fit: cover; }
+    .product-card .info { padding: 15px; text-align: center; }
+    .product-card .info h3 { font-size: 1.3rem; margin-bottom: 10px; text-transform: uppercase; }
+    .product-card .info p { font-weight: 700; font-size: 1.1rem; }
+    .add-cart-btn { background: #ff0; color: #000; border: none; padding: 10px 20px; font-weight: bold; margin-top: 10px; cursor: pointer; border-radius: 10px; }
+    .banner { background: linear-gradient(to right, #ff0, #ffd700); color: #000; padding: 20px; text-align: center; font-size: 1.5rem; font-weight: bold; text-transform: uppercase; margin: 40px 0; letter-spacing: 2px; border-top: 2px solid #000; border-bottom: 2px solid #000; }
+    footer { background: #111; padding: 40px 20px; text-align: center; color: #aaa; font-size: 0.9rem; border-top: 1px solid #333; margin-top: 60px; }
+    #cart-section { background: #111; padding: 30px; text-align: center; }
+    #cart-items { margin-top: 20px; font-size: 1.2rem; white-space: pre-line; }
+    #checkout-btn { margin-top: 20px; background: #25D366; color: #fff; padding: 15px 30px; border: none; font-weight: bold; border-radius: 10px; cursor: pointer; font-size: 1.1rem; }
+    .about-contact { background: #000; color: #fff; padding: 50px 20px; text-align: center; }
+    .about-contact h2 { font-size: 2rem; margin-bottom: 15px; text-transform: uppercase; }
+    .about-contact p { max-width: 700px; margin: 0 auto 20px; font-size: 1rem; line-height: 1.6; }
+    .socials { margin-top: 15px; }
+    .socials a { color: #ff0; margin: 0 10px; font-size: 1.2rem; text-decoration: none; }
+    .search-bar { text-align: center; margin-bottom: 40px; }
+    .search-bar input { width: 60%; padding: 10px; font-size: 1rem; border: none; border-radius: 8px; outline: none; }
   </style>
-  <link
-    rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
-  />
 </head>
 <body>
-  <header>SNITCHX</header>
+  <header>SNITCHX PREMIUM</header>
+  <nav>
+    <a href="#shoes">Shoes</a>
+    <a href="#watches">Watches</a>
+    <a href="#clothes">Clothes</a>
+    <a href="#perfumes">Perfumes</a>
+    <a href="#cart-section">Cart</a>
+    <a href="#about">About</a>
+  </nav>  <div class="banner">🔥 Buy 2 Get 1 Free - OG Streetwear Limited Time Offer 🔥</div>  <div class="search-bar">
+    <input type="text" id="searchInput" placeholder="Search SNITCHX products..." onkeyup="searchProducts()">
+  </div>  <section id="shoes">
+    <h2>Shoes</h2>
+    <div class="product-grid" id="shoes-grid"></div>
+  </section>  <section id="watches">
+    <h2>Watches</h2>
+    <div class="product-grid" id="watches-grid"></div>
+  </section>  <section id="clothes">
+    <h2>Clothes</h2>
+    <div class="product-grid" id="clothes-grid"></div>
+  </section>  <section id="perfumes">
+    <h2>Perfumes</h2>
+    <div class="product-grid" id="perfumes-grid"></div>
+  </section>  <section id="cart-section">
+    <h2>Your Cart</h2>
+    <div id="cart-items">No items yet.</div>
+    <button id="checkout-btn" onclick="checkoutCart()">Checkout via WhatsApp</button>
+  </section>  <section id="about" class="about-contact">
+    <h2>About SNITCHX</h2>
+    <p>SnitchX is India’s dopest premium streetwear brand. We blend urban fashion with OG energy. Limited drops only. 100% imported quality.</p>
+    <h2>Contact & Socials</h2>
+    <p>For collabs, bulk orders, or custom drops – DM us or WhatsApp directly.</p>
+    <div class="socials">
+      <a href="https://wa.me/918793727113">WhatsApp</a>
+      <a href="https://instagram.com/snitchx">Instagram</a>
+    </div>
+  </section>  <footer>
+    &copy; 2025 SnitchX by MidowWebDev | All rights reserved.
+  </footer>  <script>
+    const cart = [];
+    const products = [
+      { name: "OG Sneakers", price: "₹3200", category: "shoes", img: "https://i.imgur.com/F6pXw1G.jpg" },
+      { name: "Urban Runners", price: "₹4500", category: "shoes", img: "https://i.imgur.com/3UuIxXK.jpg" },
+      { name: "Gold Dial Watch", price: "₹7800", category: "watches", img: "https://i.imgur.com/tHYK5rk.jpg" },
+      { name: "Street Watch", price: "₹3500", category: "watches", img: "https://i.imgur.com/2dAgHa9.jpg" },
+      { name: "OG Hoodie", price: "₹2200", category: "clothes", img: "https://i.imgur.com/DtG2SnZ.jpg" },
+      { name: "White Urban Tee", price: "₹1400", category: "clothes", img: "https://i.imgur.com/qnZQhPA.jpg" },
+      { name: "Elite Perfume", price: "₹2400", category: "perfumes", img: "https://i.imgur.com/qcBv7d0.jpg" },
+      { name: "Mist OG Scent", price: "₹1800", category: "perfumes", img: "https://i.imgur.com/By8lADl.jpg" }
+    ];
 
-  <nav class="categories" role="list">
-    <button class="active" aria-pressed="true" onclick="filterCategory('all', this)">All</button>
-    <button aria-pressed="false" onclick="filterCategory('shoes', this)">Shoes</button>
-    <button aria-pressed="false" onclick="filterCategory('watches', this)">Watches</button>
-    <button aria-pressed="false" onclick="filterCategory('clothes', this)">Clothes</button>
-    <button aria-pressed="false" onclick="filterCategory('perfumes', this)">Perfumes</button>
-  </nav>
+    function renderProducts() {
+      products.forEach(p => {
+        const card = `<div class='product-card'><img src='${p.img}'><div class='info'><h3>${p.name}</h3><p>${p.price}</p><button class='add-cart-btn' onclick="addToCart('${p.name} - ${p.price}')">Add to Cart</button></div></div>`;
+        document.getElementById(`${p.category}-grid`).innerHTML += card;
+      });
+    }
 
-  <main class="product-grid" id="product-list" role="region" aria-live="polite"></main>
+    function addToCart(item) {
+      cart.push(item);
+      document.getElementById('cart-items').innerText = cart.join("\n");
+    }
 
-  <a href="cart.html" class="cart-link" aria-label="View Cart">
-    <i class="fas fa-shopping-cart"></i> Cart (<span id="cart-count">0</span>)
-  </a>
+    function checkoutCart() {
+      const msg = encodeURIComponent("Hello! I'd like to buy:\n" + cart.join("\n"));
+      window.open(`https://wa.me/918793727113?text=${msg}`, '_blank');
+    }
 
-  <footer>© 2025 SnitchX | OG Streetwear Vibes by MidowWebDev</footer>
+    function searchProducts() {
+      const val = document.getElementById("searchInput").value.toLowerCase();
+      document.querySelectorAll(".product-card").forEach(card => {
+        const text = card.innerText.toLowerCase();
+        card.style.display = text.includes(val) ? "block" : "none";
+      });
+    }
 
-  <script>
-    const categories = ['shoes', 'watches', 'clothes', 'perfumes'];
-    const products = [];
-    
-    // Price range fixed between 800 and 6000
-    const minPrice = 800;
-    const maxPrice = 6000;
-
-    // Images for each category (replace with your own)
-    const images = {
-      shoes: [
-        'https://i.imgur.com/F6pXw1G.jpg',
-        'https://i.imgur.com/kGVYpKP.jpg',
-        'https://i.imgur.com/FYzFJzD.jpg'
-      ],
-      watches: [
-        'https://i.imgur.com/hfSkcJb.jpg',
-        'https://i.imgur.com/VhQkAGe.jpg',
-        'https://i.imgur.com/6oXwTbw.jpg'
-      ],
-      clothes: [
-        'https://i.imgur.com/3szZIAV.jpg',
-        'https://i.imgur.com/yMNDcmx.jpg',
-        'https://i.imgur.com/5QpQZtp.jpg'
-      ],
-      perfumes: [
-        'https://i.imgur.com/nZ7AwI4.jpg',
-        'https://i.imgur.com/QBR2n4b.jpg',
-        'https://i.imgur.com/8L7BfUj.jpg'
-      ]
-    };
-
-    // To store product prices persistently in localStorage by product key
-    const priceStorageKey = 'snitchx-product-prices';
-
-    // Load stored prices or init empty object
-    let storedPrices = JSON.parse(local
+    window.onload = renderProducts;
+  </script></body>
+</html>
