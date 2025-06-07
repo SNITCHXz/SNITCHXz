@@ -1,477 +1,98 @@
+<!-- index.html -->
 <!DOCTYPE html>
-<html lang="en" >
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>SnitchX Luxury Shop - International</title>
-
+  <title>SNITCHX Access</title>
   <style>
-    /* Reset */
-    * {
-      margin: 0; padding: 0; box-sizing: border-box;
-    }
-    body, html {
-      height: 100%;
-      font-family: 'Poppins', sans-serif;
-      background: #121212;
-      color: #eee;
-      overflow-x: hidden;
-    }
-    /* Background video */
-    #bg-video {
-      position: fixed;
-      right: 0; bottom: 0;
-      min-width: 100%; min-height: 100%;
-      z-index: -2;
-      object-fit: cover;
-      filter: brightness(0.35) saturate(1.4);
-    }
-    #video-overlay {
-      position: fixed;
-      top:0; left:0; right:0; bottom:0;
-      background: linear-gradient(135deg, rgba(0,0,0,0.75), rgba(0,0,0,0.9));
-      z-index: -1;
-    }
-
-    /* Container */
-    .container {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 80px 20px 80px;
-    }
-
-    /* Logo */
-    .logo-gradient {
-      font-family: 'Montserrat', sans-serif;
-      font-weight: 900;
-      font-size: 5rem;
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(to right, #000000, #434343);
+      color: white;
+      height: 100vh;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
       text-align: center;
-      margin-bottom: 50px;
-      letter-spacing: 8px;
-      background: linear-gradient(90deg, #FF4B2B, #FF416C);
+      padding: 0 20px;
+    }
+    h1 {
+      font-size: 3rem;
+      letter-spacing: 0.15em;
+      margin-bottom: 10px;
+      background: linear-gradient(to right, #ff6a00, #ee0979);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
-      text-shadow:
-        0 0 10px #FF416C,
-        0 0 20px #FF416C,
-        0 0 30px #FF4B2B,
-        0 0 40px #FF4B2B;
-      user-select: none;
     }
-
-    /* Shop grid */
-    .products-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill,minmax(280px,1fr));
-      gap: 28px;
-      margin-bottom: 50px;
-    }
-
-    /* Product card */
-    .product-card {
-      background: linear-gradient(145deg, #1e1e1e, #292929);
-      border-radius: 14px;
-      padding: 18px 18px 30px;
-      box-shadow: 0 8px 20px rgba(255, 65, 80, 0.18);
-      display: flex;
-      flex-direction: column;
-      user-select: none;
-      transition: transform 0.35s ease, box-shadow 0.35s ease;
-      cursor: pointer;
-      position: relative;
-    }
-    .product-card:hover {
-      transform: translateY(-8px) scale(1.04);
-      box-shadow: 0 16px 40px rgba(255, 65, 80, 0.5);
-      z-index: 10;
-    }
-
-    /* Product image */
-    .product-img {
-      width: 100%;
-      border-radius: 10px;
-      margin-bottom: 16px;
-      object-fit: cover;
-      aspect-ratio: 1/1;
-      filter: drop-shadow(0 2px 5px rgba(255,65,80,0.3));
-      transition: filter 0.3s ease;
-    }
-    .product-img:hover {
-      filter: drop-shadow(0 5px 15px rgba(255,65,80,0.6));
-    }
-
-    /* Product info */
-    .product-name {
-      font-weight: 700;
-      font-size: 1.35rem;
-      color: #FF4B2B;
-      margin-bottom: 8px;
-      font-family: 'Montserrat', sans-serif;
-      letter-spacing: 1.2px;
-      user-select: text;
-    }
-    .product-desc {
-      font-size: 0.95rem;
-      color: #bbb;
-      margin-bottom: 14px;
-      font-style: italic;
-      letter-spacing: 0.04em;
-      min-height: 48px;
-    }
-    .product-price {
-      font-weight: 900;
-      font-size: 1.3rem;
-      color: #fff;
-      font-family: 'Courier New', monospace;
-      letter-spacing: 0.1em;
-      margin-bottom: 16px;
-      user-select: text;
-    }
-    .product-price small {
-      font-weight: 400;
-      font-size: 0.75rem;
-      color: #888;
-      margin-left: 8px;
-    }
-
-    /* Offer badge */
-    .offer-badge {
-      position: absolute;
-      top: 14px;
-      right: 14px;
-      background: #E63946;
-      color: white;
-      padding: 7px 15px;
-      border-radius: 50px;
-      font-weight: 900;
-      font-size: 0.85rem;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      box-shadow: 0 0 15px #E63946;
-      user-select: none;
-      z-index: 10;
-    }
-
-    /* Add to cart button */
-    .btn-add-cart {
-      padding: 12px 0;
-      background: linear-gradient(45deg, #FF416C, #FF4B2B);
-      color: white;
-      border: none;
-      border-radius: 50px;
-      font-weight: 800;
-      font-size: 1.1rem;
-      cursor: pointer;
-      transition: background 0.3s ease;
-      user-select: none;
-    }
-    .btn-add-cart:hover {
-      background: linear-gradient(45deg, #FF4B2B, #FF416C);
-      box-shadow: 0 0 15px #FF416C;
-    }
-
-    /* Cart sidebar */
-    #cart-sidebar {
-      position: fixed;
-      top: 0; right: -400px;
-      width: 350px;
-      height: 100%;
-      background: #222;
-      box-shadow: -3px 0 15px rgba(255, 65, 80, 0.8);
-      transition: right 0.35s ease;
-      padding: 24px 20px;
-      overflow-y: auto;
-      z-index: 100;
-      display: flex;
-      flex-direction: column;
-    }
-    #cart-sidebar.active {
-      right: 0;
-    }
-
-    #cart-sidebar h3 {
-      color: #FF416C;
-      font-family: 'Montserrat', sans-serif;
-      font-weight: 900;
-      font-size: 2rem;
-      margin-bottom: 24px;
-      letter-spacing: 1.5px;
-    }
-    #cart-items {
-      flex-grow: 1;
-      overflow-y: auto;
-      margin-bottom: 20px;
-    }
-
-    /* Cart item */
-    .cart-item {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 18px;
-      border-bottom: 1px solid #333;
-      padding-bottom: 10px;
-    }
-    .cart-item-name {
-      font-weight: 700;
-      color: #FF4B2B;
-      flex: 1;
-      user-select: text;
-    }
-    .cart-item-price {
-      font-weight: 900;
-      color: #fff;
-      font-family: 'Courier New', monospace;
-      margin-left: 15px;
-      user-select: text;
-    }
-    .cart-item-qty {
-      margin-left: 10px;
-      user-select: none;
-    }
-    .cart-item-remove {
-      background: transparent;
-      border: none;
-      color: #E63946;
-      font-weight: 900;
+    p {
       font-size: 1.2rem;
-      cursor: pointer;
-      margin-left: 12px;
-      user-select: none;
-      transition: color 0.2s ease;
+      margin-bottom: 30px;
+      opacity: 0.8;
     }
-    .cart-item-remove:hover {
-      color: #ff0000;
-    }
-
-    /* Cart total */
-    #cart-total {
-      font-weight: 900;
-      font-size: 1.4rem;
-      color: #FF416C;
-      margin-bottom: 22px;
-      font-family: 'Courier New', monospace;
-      user-select: text;
-    }
-
-    /* Checkout form */
-    #checkout-form {
-      display: flex;
-      flex-direction: column;
-      gap: 14px;
-      user-select: none;
-    }
-    #checkout-form label {
-      font-weight: 700;
-      font-size: 0.9rem;
-      color: #eee;
-      letter-spacing: 0.06em;
-    }
-    #checkout-form input, #checkout-form select, #checkout-form textarea {
-      padding: 10px 12px;
+    input[type="password"] {
+      padding: 15px 20px;
+      font-size: 1.1rem;
       border-radius: 8px;
       border: none;
-      font-size: 1rem;
-      font-family: 'Poppins', sans-serif;
-    }
-    #checkout-form input:focus, #checkout-form select:focus, #checkout-form textarea:focus {
       outline: none;
-      box-shadow: 0 0 8px #FF416C;
-    }
-    #checkout-submit {
-      padding: 14px 0;
-      background: linear-gradient(45deg, #FF416C, #FF4B2B);
-      color: white;
-      border: none;
-      border-radius: 50px;
-      font-weight: 900;
-      font-size: 1.2rem;
-      cursor: pointer;
-      transition: background 0.3s ease;
-      user-select: none;
-    }
-    #checkout-submit:hover {
-      background: linear-gradient(45deg, #FF4B2B, #FF416C);
-      box-shadow: 0 0 18px #FF416C;
-    }
-
-    /* Cart toggle button */
-    #cart-toggle-btn {
-      position: fixed;
-      top: 20px; right: 20px;
-      background: linear-gradient(45deg, #FF416C, #FF4B2B);
-      border-radius: 50px;
-      color: white;
-      padding: 16px 24px;
-      font-weight: 900;
-      font-size: 1.1rem;
-      cursor: pointer;
-      box-shadow: 0 6px 20px rgba(255, 65, 80, 0.7);
-      border: none;
-      z-index: 110;
-      user-select: none;
-      transition: background 0.3s ease;
-    }
-    #cart-toggle-btn:hover {
-      background: linear-gradient(45deg, #FF4B2B, #FF416C);
-      box-shadow: 0 10px 28px rgba(255, 65, 80, 0.9);
-    }
-
-    /* Confirmation message */
-    #confirmation-message {
-      position: fixed;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      background: #FF416C;
-      color: white;
-      padding: 28px 40px;
-      border-radius: 18px;
-      font-weight: 900;
-      font-size: 1.6rem;
-      letter-spacing: 0.1em;
-      display: none;
-      z-index: 120;
-      box-shadow: 0 0 35px #FF416C;
-      text-align: center;
+      width: 250px;
       max-width: 90vw;
+      margin-bottom: 15px;
+      box-shadow: 0 0 8px rgba(255, 60, 0, 0.7);
+      background: #222;
+      color: white;
     }
-
-    /* Responsive */
-    @media (max-width: 768px) {
-      #cart-sidebar {
-        width: 100%;
-      }
-      #cart-toggle-btn {
-        right: 12px;
-        top: 12px;
-        padding: 12px 18px;
-        font-size: 1rem;
-      }
-      .container {
-        padding: 50px 15px 50px;
-      }
-      .logo-gradient {
-        font-size: 3rem;
-        margin-bottom: 35px;
-      }
-      .products-grid {
-        grid-template-columns: 1fr;
-        gap: 20px;
-      }
+    button {
+      padding: 15px 30px;
+      font-size: 1.1rem;
+      border-radius: 8px;
+      border: none;
+      background: #ff3c00;
+      color: white;
+      cursor: pointer;
+      box-shadow: 0 0 15px #ff3c00;
+      transition: background 0.3s ease;
+    }
+    button:hover {
+      background: #ee2a00;
+    }
+    #msg {
+      margin-top: 15px;
+      color: #ff4d4d;
+      font-weight: 600;
+      min-height: 24px;
     }
   </style>
-
-  <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;900&family=Poppins&display=swap" rel="stylesheet">
-
 </head>
 <body>
-
-  <!-- Background video -->
-  <video id="bg-video" autoplay muted loop playsinline>
-    <source src="https://cdn.videvo.net/videvo_files/video/free/2019-11/small_watermarked/190927_03_Downtown_Los_Angeles_1080p_004_preview.webm" type="video/webm" />
-    Your browser does not support the video tag.
-  </video>
-  <div id="video-overlay"></div>
-
-  <button id="cart-toggle-btn" aria-label="Toggle Cart">Cart 🛒</button>
-
-  <div class="container">
-    <h1 class="logo-gradient">SnitchX</h1>
-
-    <div class="products-grid" id="products-grid">
-      <!-- Products will be inserted here by JS -->
-    </div>
-  </div>
-
-  <aside id="cart-sidebar" aria-label="Shopping Cart" role="region" aria-live="polite">
-    <h3>Your Cart</h3>
-    <div id="cart-items">
-      <!-- Cart items here -->
-    </div>
-    <div id="cart-total">Total: ₹0 | $0.00</div>
-
-    <form id="checkout-form" aria-label="Checkout Form">
-      <label for="name">Full Name *</label>
-      <input type="text" id="name" name="name" required placeholder="John Doe" />
-
-      <label for="email">Email *</label>
-      <input type="email" id="email" name="email" required placeholder="email@example.com" />
-
-      <label for="country">Country *</label>
-      <select id="country" name="country" required>
-        <option value="">Select your country</option>
-        <option value="India" selected>India</option>
-        <option value="United States">United States</option>
-        <option value="United Kingdom">United Kingdom</option>
-        <option value="United Arab Emirates">United Arab Emirates</option>
-        <option value="Canada">Canada</option>
-        <option value="Australia">Australia</option>
-        <option value="Germany">Germany</option>
-        <option value="France">France</option>
-        <option value="Japan">Japan</option>
-        <option value="China">China</option>
-        <option value="Other">Other</option>
-      </select>
-
-      <label for="address">Address *</label>
-      <textarea id="address" name="address" rows="2" placeholder="Street, city, zip code" required></textarea>
-
-      <label for="payment">Preferred Payment Method *</label>
-      <select id="payment" name="payment" required>
-        <option value="">Select payment</option>
-        <option value="Credit Card">Credit Card</option>
-        <option value="PayPal">PayPal</option>
-        <option value="Crypto">Crypto</option>
-        <option value="Cash on Delivery">Cash on Delivery</option>
-      </select>
-
-      <button type="submit" id="checkout-submit">Place Order</button>
-    </form>
-  </aside>
-
-  <div id="confirmation-message" role="alert" aria-live="assertive"></div>
+  <h1>SNITCHX</h1>
+  <p>Enter your exclusive passcode to access the store</p>
+  <input type="password" id="passcode" placeholder="Enter Passcode" autofocus />
+  <br />
+  <button onclick="checkPass()">Enter</button>
+  <p id="msg"></p>
 
   <script>
-    // Product data with images and dual currency pricing
-    const products = [
-      {
-        id: 1,
-        name: "Nike Air Max",
-        desc: "Exclusive Running Shoes",
-        priceINR: 1500,
-        priceUSD: 18,
-        img: "https://images.unsplash.com/photo-1519744792095-2f2205e87b6f?auto=format&fit=crop&w=400&q=80"
-      },
-      {
-        id: 2,
-        name: "Adidas Ultraboost",
-        desc: "High Performance Sneakers",
-        priceINR: 2200,
-        priceUSD: 27,
-        img: "https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=400&q=80"
-      },
-      {
-        id: 3,
-        name: "Roadster Classic",
-        desc: "Premium Leather Sneakers",
-        priceINR: 3800,
-        priceUSD: 45,
-        img: "https://images.unsplash.com/photo-1513708920973-8ca5c0d0c45f?auto=format&fit=crop&w=400&q=80"
-      },
-      {
-        id: 4,
-        name: "Rolex Submariner",
-        desc: "Luxury Swiss Watch",
-        priceINR: 9000,
-        priceUSD: 110,
-        img: "https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&w=400&q=80"
-      },
-      {
-        id: 5,
-        name: "Patek Philippe Nautilus",
-        desc: "Iconic Timepiece",
-        priceINR: 15000,
-        priceUSD: 185,
-        img: "https://images.unsplash.com/photo-1526045612212-70caf35c
+    function checkPass() {
+      const pass = document.getElementById('passcode').value.trim();
+      if (pass === 'SNITCHX123') {
+        window.location.href = 'home.html';
+      } else {
+        const msg = document.getElementById('msg');
+        msg.textContent = '❌ Wrong passcode. Please try again.';
+        msg.style.opacity = 1;
+        setTimeout(() => { msg.style.opacity = 0; }, 3000);
+      }
+    }
+    // Optional: Press Enter key triggers checkPass
+    document.getElementById('passcode').addEventListener('keypress', function(e) {
+      if (e.key === 'Enter') {
+        checkPass();
+      }
+    });
+  </script>
+</body>
+</html>
