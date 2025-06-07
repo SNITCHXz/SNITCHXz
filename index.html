@@ -1,58 +1,42 @@
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE html><html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>SNITCHX Premium</title>
   <link rel="stylesheet" href="style.css" />
+  <script defer src="script.js"></script>
 </head>
-<body>
-
-  <div id="admin-lock" class="lock-screen">
+<body>  <div id="admin-lock" class="lock-screen">
     <h2>Admin Login</h2>
     <input type="password" id="adminPass" placeholder="Enter Admin Password" />
     <button onclick="checkPass()">Unlock</button>
+  </div>  <div id="mainSite" style="display:none;">
+    <header>
+      <h1 class="logo">SNITCHX</h1>
+      <p class="tagline">Premium Streetwear. International Style.</p>
+    </header><section class="promo-banner">
+  <p>🔥 Buy 2 Get 1 Free | 75% Off on ₹6000+ Items 🔥</p>
+</section>
+
+<section class="product-section">
+  <h2>Shoes - Nike</h2>
+  <div class="product-card">
+    <img src="https://via.placeholder.com/150" alt="Nike Shoe">
+    <h3>Nike Air Max</h3>
+    <p class="price">₹4200</p>
+    <a href="https://wa.me/918000000000?text=I%20want%20to%20order%20Nike%20Air%20Max" target="_blank">
+      <button>Order via WhatsApp</button>
+    </a>
   </div>
-
-  <div id="mainSite" style="display:none;">
-    <!-- 👇 Apna store content yaha daal -->
-    <h1>Welcome to SNITCHX</h1>
-    <p>Premium Streetwear, International Shipping, OG Designs</p>
-
-    <!-- Example Product Section -->
-    <section class="product-section">
-      <h2>Shoes - Nike</h2>
-      <div class="product-card">
-        <img src="https://via.placeholder.com/150" alt="Nike Shoe">
-        <h3>Nike Air Max</h3>
-        <p>₹4200</p>
-        <button>Order via WhatsApp</button>
-      </div>
-    </section>
+  <div class="product-card">
+    <img src="https://via.placeholder.com/150" alt="Adidas Shoe">
+    <h3>Adidas Ultraboost</h3>
+    <p class="price">₹6200 <span class="offer">75% OFF</span></p>
+    <a href="https://wa.me/918000000000?text=I%20want%20to%20order%20Adidas%20Ultraboost" target="_blank">
+      <button>Order via WhatsApp</button>
+    </a>
   </div>
+</section>
 
-  <script>
-    const correctPass = "Mishty.12";
-
-    function checkPass() {
-      const entered = document.getElementById("adminPass").value;
-      if (entered === correctPass) {
-        document.getElementById("admin-lock").style.display = "none";
-        document.getElementById("mainSite").style.display = "block";
-      } else {
-        alert("Wrong password!");
-      }
-    }
-
-    // Auto show full site to users (admin lock only on "?admin=true")
-    window.onload = function() {
-      const url = new URL(window.location.href);
-      if (!url.searchParams.get("admin")) {
-        document.getElementById("admin-lock").style.display = "none";
-        document.getElementById("mainSite").style.display = "block";
-      }
-    }
-  </script>
-
-</body>
+  </div></body>
 </html>
