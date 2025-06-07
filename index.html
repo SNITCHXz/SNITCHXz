@@ -2,97 +2,94 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>SNITCHX Access</title>
-  <style>
-    body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background: linear-gradient(to right, #000000, #434343);
-      color: white;
-      height: 100vh;
-      margin: 0;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      text-align: center;
-      padding: 0 20px;
-    }
-    h1 {
-      font-size: 3rem;
-      letter-spacing: 0.15em;
-      margin-bottom: 10px;
-      background: linear-gradient(to right, #ff6a00, #ee0979);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-    }
-    p {
-      font-size: 1.2rem;
-      margin-bottom: 30px;
-      opacity: 0.8;
-    }
-    input[type="password"] {
-      padding: 15px 20px;
-      font-size: 1.1rem;
-      border-radius: 8px;
-      border: none;
-      outline: none;
-      width: 250px;
-      max-width: 90vw;
-      margin-bottom: 15px;
-      box-shadow: 0 0 8px rgba(255, 60, 0, 0.7);
-      background: #222;
-      color: white;
-    }
-    button {
-      padding: 15px 30px;
-      font-size: 1.1rem;
-      border-radius: 8px;
-      border: none;
-      background: #ff3c00;
-      color: white;
-      cursor: pointer;
-      box-shadow: 0 0 15px #ff3c00;
-      transition: background 0.3s ease;
-    }
-    button:hover {
-      background: #ee2a00;
-    }
-    #msg {
-      margin-top: 15px;
-      color: #ff4d4d;
-      font-weight: 600;
-      min-height: 24px;
-    }
-  </style>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>SNITCHX Admin Login</title>
+<style>
+  body {
+    margin: 0; padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #000000, #434343);
+    color: white;
+    height: 100vh;
+    display: flex; justify-content: center; align-items: center;
+    flex-direction: column;
+    text-align: center;
+  }
+  h1 {
+    font-size: 3rem;
+    letter-spacing: 0.2em;
+    background: linear-gradient(to right, #ff6a00, #ee0979);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 0.3em;
+  }
+  input[type="password"] {
+    padding: 15px 25px;
+    font-size: 1.2rem;
+    border-radius: 8px;
+    border: none;
+    outline: none;
+    width: 280px;
+    max-width: 90vw;
+    margin-bottom: 15px;
+    box-shadow: 0 0 10px #ff3c00;
+    background: #222;
+    color: white;
+    transition: box-shadow 0.3s ease;
+  }
+  input[type="password"]:focus {
+    box-shadow: 0 0 20px #ff6a00;
+  }
+  button {
+    padding: 15px 40px;
+    font-size: 1.2rem;
+    border-radius: 8px;
+    border: none;
+    background: #ff3c00;
+    color: white;
+    cursor: pointer;
+    box-shadow: 0 0 20px #ff3c00;
+    transition: background 0.3s ease;
+  }
+  button:hover {
+    background: #ee2a00;
+  }
+  #msg {
+    margin-top: 20px;
+    color: #ff4d4d;
+    font-weight: 600;
+    min-height: 24px;
+  }
+  p.desc {
+    font-size: 1.1rem;
+    opacity: 0.8;
+    margin-bottom: 40px;
+  }
+</style>
 </head>
 <body>
   <h1>SNITCHX</h1>
-  <p>Enter your exclusive passcode to access the store</p>
-  <input type="password" id="passcode" placeholder="Enter Passcode" autofocus />
+  <p class="desc">Admin Login - Enter your passcode</p>
+  <input id="passcode" type="password" placeholder="Enter Passcode" autofocus />
   <br />
   <button onclick="checkPass()">Enter</button>
   <p id="msg"></p>
 
-  <script>
-    function checkPass() {
-      const pass = document.getElementById('passcode').value.trim();
-      if (pass === 'SNITCHX123') {
-        window.location.href = 'home.html';
-      } else {
-        const msg = document.getElementById('msg');
-        msg.textContent = '❌ Wrong passcode. Please try again.';
-        msg.style.opacity = 1;
-        setTimeout(() => { msg.style.opacity = 0; }, 3000);
-      }
+<script>
+  function checkPass() {
+    const pass = document.getElementById('passcode').value.trim();
+    if (pass === 'SNITCHX123') {
+      window.location.href = 'home.html';
+    } else {
+      const msg = document.getElementById('msg');
+      msg.textContent = '❌ Wrong passcode. Try again.';
+      setTimeout(() => { msg.textContent = ''; }, 3000);
     }
-    // Optional: Press Enter key triggers checkPass
-    document.getElementById('passcode').addEventListener('keypress', function(e) {
-      if (e.key === 'Enter') {
-        checkPass();
-      }
-    });
-  </script>
+  }
+  document.getElementById('passcode').addEventListener('keypress', function(e) {
+    if (e.key === 'Enter') checkPass();
+  });
+</script>
 </body>
 </html>
