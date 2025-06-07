@@ -181,41 +181,31 @@
   <!-- Shoes Section -->
   <section id="shoes">
     <h2>Shoes</h2>
-    <div class="products-grid" id="shoes-grid">
-      <!-- Shoes products added by JS -->
-    </div>
+    <div class="products-grid" id="shoes-grid"></div>
   </section>
 
   <!-- Watches Section -->
   <section id="watches">
     <h2>Watches</h2>
-    <div class="products-grid" id="watches-grid">
-      <!-- Watches products added by JS -->
-    </div>
+    <div class="products-grid" id="watches-grid"></div>
   </section>
 
   <!-- Perfumes Section -->
   <section id="perfumes">
     <h2>Perfumes</h2>
-    <div class="products-grid" id="perfumes-grid">
-      <!-- Perfumes products added by JS -->
-    </div>
+    <div class="products-grid" id="perfumes-grid"></div>
   </section>
 
   <!-- Clothes Section -->
   <section id="clothes">
     <h2>Clothes</h2>
-    <div class="products-grid" id="clothes-grid">
-      <!-- Clothes products added by JS -->
-    </div>
+    <div class="products-grid" id="clothes-grid"></div>
   </section>
 
   <!-- Specs Section -->
   <section id="specs">
     <h2>Specs</h2>
-    <div class="products-grid" id="specs-grid">
-      <!-- Specs products added by JS -->
-    </div>
+    <div class="products-grid" id="specs-grid"></div>
   </section>
 
 </main>
@@ -225,40 +215,38 @@
 </footer>
 
 <script>
-  // Product data arrays
+  // Placeholder image URL (can replace with your images later)
+  const placeholderImg = 'https://via.placeholder.com/400x300/ff6a00/fff?text=SNITCHX';
+
+  // Product data arrays with placeholder images
   const shoes = [
-    {name: 'Nike Air Max 270', brand: 'Nike', price: 1500, img: 'images/shoes1.jpg'},
-    {name: 'Adidas Ultraboost', brand: 'Adidas', price: 2000, img: 'images/shoes2.jpg'},
-    {name: 'Roadster Casuals', brand: 'Roadster', price: 4000, img: 'images/shoes3.jpg'},
-    // Add up to 10 sample shoes here
+    {name: 'Nike Air Max 270', brand: 'Nike', price: 1500, img: placeholderImg},
+    {name: 'Adidas Ultraboost', brand: 'Adidas', price: 2000, img: placeholderImg},
+    {name: 'Roadster Casuals', brand: 'Roadster', price: 4000, img: placeholderImg},
   ];
 
   const watches = [
-    {name: 'Rolex Submariner', brand: 'Rolex', price: 9000, img: 'images/watch1.jpg'},
-    {name: 'Omega Seamaster', brand: 'Omega', price: 8500, img: 'images/watch2.jpg'},
-    {name: 'Tag Heuer Carrera', brand: 'Tag Heuer', price: 7500, img: 'images/watch3.jpg'},
-    // Add more watches
+    {name: 'Rolex Submariner', brand: 'Rolex', price: 9000, img: placeholderImg},
+    {name: 'Omega Seamaster', brand: 'Omega', price: 8500, img: placeholderImg},
+    {name: 'Tag Heuer Carrera', brand: 'Tag Heuer', price: 7500, img: placeholderImg},
   ];
 
   const perfumes = [
-    {name: 'Chanel No. 5', brand: 'Chanel', price: 6500, img: 'images/perfume1.jpg'},
-    {name: 'Dior Sauvage', brand: 'Dior', price: 7000, img: 'images/perfume2.jpg'},
-    {name: 'Gucci Bloom', brand: 'Gucci', price: 5800, img: 'images/perfume3.jpg'},
-    // Add more perfumes
+    {name: 'Chanel No. 5', brand: 'Chanel', price: 6500, img: placeholderImg},
+    {name: 'Dior Sauvage', brand: 'Dior', price: 7000, img: placeholderImg},
+    {name: 'Gucci Bloom', brand: 'Gucci', price: 5800, img: placeholderImg},
   ];
 
   const clothes = [
-    {name: 'Gucci Leather Jacket', brand: 'Gucci', price: 6000, img: 'images/clothes1.jpg'},
-    {name: 'Prada Formal Shirt', brand: 'Prada', price: 5500, img: 'images/clothes2.jpg'},
-    {name: 'Armani Trousers', brand: 'Armani', price: 4800, img: 'images/clothes3.jpg'},
-    // Add more clothes
+    {name: 'Gucci Leather Jacket', brand: 'Gucci', price: 6000, img: placeholderImg},
+    {name: 'Prada Formal Shirt', brand: 'Prada', price: 5500, img: placeholderImg},
+    {name: 'Armani Trousers', brand: 'Armani', price: 4800, img: placeholderImg},
   ];
 
   const specs = [
-    {name: 'Ray-Ban Aviator', brand: 'Ray-Ban', price: 3500, img: 'images/specs1.jpg'},
-    {name: 'Oakley Sports', brand: 'Oakley', price: 3000, img: 'images/specs2.jpg'},
-    {name: 'Prada Classic', brand: 'Prada', price: 4200, img: 'images/specs3.jpg'},
-    // Add more specs
+    {name: 'Ray-Ban Aviator', brand: 'Ray-Ban', price: 3500, img: placeholderImg},
+    {name: 'Oakley Sports', brand: 'Oakley', price: 3000, img: placeholderImg},
+    {name: 'Prada Classic', brand: 'Prada', price: 4200, img: placeholderImg},
   ];
 
   function formatPrice(price) {
