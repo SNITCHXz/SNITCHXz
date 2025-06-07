@@ -3,100 +3,208 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>SNITCHX Premium</title>
-  <link rel="stylesheet" href="style.css" />
-  <script defer src="script.js"></script>
+  <title>SnitchX - Premium Store</title>
+  <style>
+    /* Basic Reset */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #1f1c2c, #928dab);
+      color: #fff;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+    }
+    #admin-lock {
+      max-width: 400px;
+      background: rgba(255, 255, 255, 0.1);
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.5);
+      text-align: center;
+    }
+    #admin-lock h2 {
+      margin-bottom: 20px;
+      font-weight: 700;
+      font-size: 1.8rem;
+      letter-spacing: 2px;
+    }
+    #adminPass {
+      width: 100%;
+      padding: 12px 15px;
+      border-radius: 6px;
+      border: none;
+      font-size: 1.1rem;
+      margin-bottom: 20px;
+      outline: none;
+    }
+    #submitBtn {
+      width: 100%;
+      padding: 12px;
+      background: #ff3c78;
+      border: none;
+      border-radius: 6px;
+      color: white;
+      font-weight: 700;
+      font-size: 1.2rem;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+    #submitBtn:hover {
+      background: #e83265;
+    }
+
+    #mainSite {
+      display: none;
+      width: 100%;
+      max-width: 1200px;
+      background: #121214;
+      border-radius: 12px;
+      padding: 30px;
+      box-shadow: 0 0 30px rgba(255, 60, 120, 0.5);
+    }
+    #mainSite h1 {
+      font-size: 2.8rem;
+      text-align: center;
+      margin-bottom: 40px;
+      letter-spacing: 3px;
+      background: linear-gradient(90deg, #ff3c78, #ff80b5);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    /* Simple product grid */
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit,minmax(220px,1fr));
+      gap: 25px;
+    }
+    .product-card {
+      background: #1f1c2c;
+      border-radius: 10px;
+      padding: 15px;
+      box-shadow: 0 0 10px rgba(255, 60, 120, 0.3);
+      transition: transform 0.3s ease;
+    }
+    .product-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 0 20px rgba(255, 60, 120, 0.7);
+    }
+    .product-image {
+      width: 100%;
+      height: 180px;
+      border-radius: 8px;
+      object-fit: cover;
+      margin-bottom: 15px;
+    }
+    .product-name {
+      font-size: 1.2rem;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+    .product-price {
+      color: #ff3c78;
+      font-weight: 700;
+      font-size: 1.1rem;
+      margin-bottom: 10px;
+    }
+    .btn-buy {
+      background: #ff3c78;
+      color: white;
+      border: none;
+      padding: 10px 15px;
+      border-radius: 6px;
+      cursor: pointer;
+      font-weight: 700;
+      width: 100%;
+      transition: background 0.3s ease;
+      font-size: 1rem;
+    }
+    .btn-buy:hover {
+      background: #e83265;
+    }
+    footer {
+      margin-top: 50px;
+      text-align: center;
+      font-size: 0.9rem;
+      color: #aaa;
+    }
+  </style>
 </head>
 <body>
 
-  <div id="admin-lock" class="lock-screen">
-    <h2>Admin Login</h2>
-    <input type="password" id="adminPass" placeholder="Enter Admin Password" />
-    <button onclick="checkPass()">Unlock</button>
+  <div id="admin-lock">
+    <h2>Enter Admin Password</h2>
+    <input type="password" id="adminPass" placeholder="Password" autocomplete="off" />
+    <button id="submitBtn" onclick="checkPass()">Unlock</button>
   </div>
 
-  <div id="mainSite" style="display:none;">
-    <header>
-      <h1 class="logo">SNITCHX</h1>
-      <p class="tagline">Premium Streetwear. International Style.</p>
-    </header>
-
-    <section class="promo-banner">
-      <p>🔥 Buy 2 Get 1 Free | 75% Off on ₹6000+ Items 🔥</p>
-    </section>
-
-    <section class="product-section">
-      <h2>Shoes - Nike, Adidas, Roadster</h2>
-      <div class="product-card">
-        <img src="https://via.placeholder.com/150" alt="Nike Air Max" />
-        <h3>Nike Air Max</h3>
-        <p class="price">₹4200</p>
-        <a href="https://wa.me/918000000000?text=I want to order Nike Air Max" target="_blank">
-          <button>Order via WhatsApp</button>
-        </a>
-      </div>
-      <div class="product-card">
-        <img src="https://via.placeholder.com/150" alt="Adidas Ultraboost" />
-        <h3>Adidas Ultraboost</h3>
-        <p class="price">₹6200 <span class="offer">75% OFF</span></p>
-        <a href="https://wa.me/918000000000?text=I want to order Adidas Ultraboost" target="_blank">
-          <button>Order via WhatsApp</button>
-        </a>
-      </div>
-      <div class="product-card">
-        <img src="https://via.placeholder.com/150" alt="Roadster Sneakers" />
-        <h3>Roadster Sneakers</h3>
-        <p class="price">₹3800</p>
-        <a href="https://wa.me/918000000000?text=I want to order Roadster Sneakers" target="_blank">
-          <button>Order via WhatsApp</button>
-        </a>
-      </div>
-    </section>
-
-    <section class="product-section">
-      <h2>Watches - Rolex & International Brands</h2>
-      <div class="product-card">
-        <img src="https://via.placeholder.com/150" alt="Rolex Submariner" />
-        <h3>Rolex Submariner</h3>
-        <p class="price">₹15000 <span class="offer">75% OFF</span></p>
-        <a href="https://wa.me/918000000000?text=I want to order Rolex Submariner" target="_blank">
-          <button>Order via WhatsApp</button>
-        </a>
-      </div>
-      <div class="product-card">
-        <img src="https://via.placeholder.com/150" alt="Omega Seamaster" />
-        <h3>Omega Seamaster</h3>
-        <p class="price">₹9000</p>
-        <a href="https://wa.me/918000000000?text=I want to order Omega Seamaster" target="_blank">
-          <button>Order via WhatsApp</button>
-        </a>
-      </div>
-    </section>
-
-    <section class="product-section">
-      <h2>Perfumes - Luxury Brands</h2>
-      <div class="product-card">
-        <img src="https://via.placeholder.com/150" alt="Chanel No.5" />
-        <h3>Chanel No.5</h3>
-        <p class="price">₹7000</p>
-        <a href="https://wa.me/918000000000?text=I want to order Chanel No.5" target="_blank">
-          <button>Order via WhatsApp</button>
-        </a>
-      </div>
-      <div class="product-card">
-        <img src="https://via.placeholder.com/150" alt="Dior Sauvage" />
-        <h3>Dior Sauvage</h3>
-        <p class="price">₹6500</p>
-        <a href="https://wa.me/918000000000?text=I want to order Dior Sauvage" target="_blank">
-          <button>Order via WhatsApp</button>
-        </a>
-      </div>
-    </section>
-
-    <footer>
-      <p>© 2025 SNITCHX. All rights reserved.</p>
-    </footer>
+  <div id="mainSite">
+    <h1>Welcome to SnitchX Premium Store</h1>
+    <div class="product-grid" id="productGrid">
+      <!-- Products will load here -->
+    </div>
+    <footer>© 2025 SnitchX. All rights reserved.</footer>
   </div>
+
+  <script>
+    const ADMIN_PASSWORD = 'Mishty.12';
+
+    function checkPass() {
+      const input = document.getElementById('adminPass').value;
+      if(input === ADMIN_PASSWORD) {
+        document.getElementById('admin-lock').style.display = 'none';
+        document.getElementById('mainSite').style.display = 'block';
+        loadProducts();
+      } else {
+        alert('Wrong password! Try again.');
+      }
+    }
+
+    // Example product data
+    const products = [
+      {id: 1, name: "Nike Running Shoes", price: 2500, img: "https://images.unsplash.com/photo-1600185364664-e1f9112ed98d?auto=format&fit=crop&w=500&q=80"},
+      {id: 2, name: "Rolex Watch", price: 15000, img: "https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&w=500&q=80"},
+      {id: 3, name: "Luxury Perfume", price: 6000, img: "https://images.unsplash.com/photo-1536528087229-7a2474a7e60c?auto=format&fit=crop&w=500&q=80"},
+      {id: 4, name: "Adidas Sneakers", price: 3200, img: "https://images.unsplash.com/photo-1519744792095-2f2205e87b6f?auto=format&fit=crop&w=500&q=80"},
+      {id: 5, name: "Premium Sunglasses", price: 4800, img: "https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=500&q=80"},
+      {id: 6, name: "Roadster Jacket", price: 4000, img: "https://images.unsplash.com/photo-1541099649105-f69ad21f3246?auto=format&fit=crop&w=500&q=80"},
+      {id: 7, name: "Imported Cologne", price: 5200, img: "https://images.unsplash.com/photo-1556228721-63a9ccdd1c82?auto=format&fit=crop&w=500&q=80"},
+      {id: 8, name: "Luxury T-Shirt", price: 1800, img: "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?auto=format&fit=crop&w=500&q=80"},
+    ];
+
+    function loadProducts() {
+      const grid = document.getElementById('productGrid');
+      grid.innerHTML = '';
+
+      products.forEach(prod => {
+        // 75% OFF badge for products price > 6000
+        const offerBadge = prod.price > 6000 ? '<div style="position:absolute; top:10px; right:10px; background:#ff3c78; color:#fff; padding: 5px 8px; font-weight:700; font-size:0.8rem; border-radius:5px;">75% OFF</div>' : '';
+
+        const productHTML = `
+          <div class="product-card" style="position:relative;">
+            ${offerBadge}
+            <img class="product-image" src="${prod.img}" alt="${prod.name}" />
+            <div class="product-name">${prod.name}</div>
+            <div class="product-price">₹${prod.price.toLocaleString()}</div>
+            <button class="btn-buy" onclick="orderViaWhatsApp('${prod.name}', ${prod.price})">Order Now</button>
+          </div>
+        `;
+        grid.insertAdjacentHTML('beforeend', productHTML);
+      });
+    }
+
+    function orderViaWhatsApp(name, price) {
+      const phone = '8793727113'; // Your WhatsApp number
+      const message = encodeURIComponent(`Hello, I want to order the product: ${name} priced at ₹${price.toLocaleString()}. Please provide further details.`);
+      window.open(`https://wa.me/${phone}?text=${message}`, '_blank');
+    }
+  </script>
 
 </body>
 </html>
