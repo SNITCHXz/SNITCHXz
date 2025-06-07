@@ -1,70 +1,146 @@
-body {
-  font-family: 'Segoe UI', sans-serif;
+/* Reset & base */
+* {
   margin: 0;
-  background: #0f0f0f;
-  color: white;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #222;
 }
-
-.lock-screen {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  height: 100vh;
-  background: linear-gradient(to right, #0f0f0f, #1a1a1a);
-}
-
-.lock-screen h2 {
-  margin-bottom: 20px;
-}
-
-.lock-screen input {
-  padding: 10px;
-  margin-bottom: 10px;
-  border-radius: 6px;
-  border: none;
-  width: 200px;
-}
-
-.lock-screen button {
-  padding: 10px 20px;
-  border: none;
-  border-radius: 6px;
-  background-color: #ff4f4f;
-  color: white;
-  cursor: pointer;
-}
-
-.product-section {
+body {
+  background: linear-gradient(135deg, #1f2937, #111827);
+  min-height: 100vh;
   padding: 20px;
 }
-
-.product-card {
-  background: #1a1a1a;
-  padding: 20px;
-  margin: 20px auto;
-  border-radius: 10px;
-  max-width: 300px;
+header {
   text-align: center;
+  margin-bottom: 20px;
+  color: #f9fafb;
 }
-
+.logo {
+  font-size: 3rem;
+  font-weight: 900;
+  background: linear-gradient(45deg, #6ee7b7, #3b82f6);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.tagline {
+  font-style: italic;
+  margin-top: 5px;
+  font-size: 1.2rem;
+  color: #9ca3af;
+}
+.promo-banner {
+  background: #111827;
+  color: #10b981;
+  font-weight: 700;
+  font-size: 1.1rem;
+  text-align: center;
+  padding: 15px;
+  border-radius: 10px;
+  margin-bottom: 25px;
+  box-shadow: 0 0 15px #10b981aa;
+}
+.product-section {
+  margin-bottom: 40px;
+}
+.product-section h2 {
+  color: #f3f4f6;
+  margin-bottom: 15px;
+  border-left: 6px solid #3b82f6;
+  padding-left: 10px;
+  font-weight: 800;
+  font-size: 1.7rem;
+}
+.product-card {
+  background: #1f2937;
+  border-radius: 15px;
+  padding: 15px;
+  display: inline-block;
+  margin: 10px;
+  width: 220px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.7);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.product-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 8px 25px #3b82f6cc;
+}
 .product-card img {
   width: 100%;
-  border-radius: 8px;
+  border-radius: 10px;
+  margin-bottom: 10px;
 }
-
 .product-card h3 {
-  margin-top: 10px;
-  font-size: 18px;
+  font-weight: 700;
+  margin-bottom: 8px;
+  color: #e0e7ff;
+  font-size: 1.1rem;
+}
+.price {
+  font-weight: 900;
+  color: #10b981;
+  font-size: 1.2rem;
+  margin-bottom: 12px;
+}
+.offer {
+  color: #ef4444;
+  font-weight: 900;
+  font-size: 1rem;
+  margin-left: 8px;
+}
+.product-card button {
+  background: #3b82f6;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 10px 0;
+  font-weight: 700;
+  cursor: pointer;
+  width: 100%;
+  transition: background 0.3s ease;
+}
+.product-card button:hover {
+  background: #2563eb;
 }
 
-.product-card button {
-  margin-top: 10px;
-  padding: 10px 15px;
-  background: #00c853;
+/* Lock screen */
+.lock-screen {
+  background: #111827;
+  color: #f3f4f6;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.lock-screen h2 {
+  margin-bottom: 20px;
+  font-size: 2rem;
+}
+.lock-screen input {
+  padding: 12px 15px;
+  border-radius: 8px;
   border: none;
+  margin-bottom: 15px;
+  font-size: 1rem;
+  width: 250px;
+}
+.lock-screen button {
+  background: #10b981;
   color: white;
-  font-weight: bold;
+  border: none;
+  padding: 12px 25px;
+  font-weight: 700;
   cursor: pointer;
-  border-radius: 6px;
+  border-radius: 8px;
+  font-size: 1rem;
+}
+.lock-screen button:hover {
+  background: #059669;
+}
+footer {
+  margin-top: 60px;
+  text-align: center;
+  color: #9ca3af;
+  font-size: 0.9rem;
 }
