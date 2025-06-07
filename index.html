@@ -2,62 +2,436 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>SNITCHX | OG Streetwear</title>
-  <link rel="stylesheet" href="style.css" />
-  <script src="script.js" defer></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>SnitchX - Premium Streetwear</title>
+  <style>
+    /* ====== RESET ====== */
+    * {
+      margin: 0; padding: 0; box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+    body {
+      background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+      color: #eee;
+      min-height: 100vh;
+      display: flex; flex-direction: column;
+    }
+    header {
+      background: linear-gradient(90deg, #ff416c, #ff4b2b);
+      padding: 1.5rem 2rem;
+      text-align: center;
+      font-weight: 900;
+      font-size: 2.5rem;
+      letter-spacing: 3px;
+      color: white;
+      font-family: 'Segoe UI Black', 'Arial Black', sans-serif;
+      background-clip: text;
+      -webkit-background-clip: text;
+      color: transparent;
+      user-select:none;
+    }
+    header span.gradient {
+      background: linear-gradient(90deg, #00c6ff, #0072ff);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    nav {
+      background: rgba(0,0,0,0.5);
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      flex-wrap: wrap;
+    }
+    nav button {
+      background: #ff4b2b;
+      border: none;
+      padding: 0.6rem 1.4rem;
+      color: white;
+      font-weight: 700;
+      border-radius: 50px;
+      cursor: pointer;
+      transition: 0.3s ease;
+      box-shadow: 0 0 10px #ff4b2baa;
+      font-size: 1.1rem;
+    }
+    nav button.active, nav button:hover {
+      background: #00b4d8;
+      box-shadow: 0 0 12px #00b4d8aa;
+    }
+    main {
+      flex: 1;
+      padding: 2rem;
+      max-width: 1200px;
+      margin: auto;
+    }
+    .products-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit,minmax(220px,1fr));
+      gap: 2rem;
+    }
+    .product-card {
+      background: rgba(255,255,255,0.1);
+      border-radius: 15px;
+      padding: 1rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      box-shadow: 0 0 15px rgba(255,255,255,0.1);
+      transition: transform 0.3s ease;
+      cursor: pointer;
+      position: relative;
+    }
+    .product-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 0 20px #00b4d8cc;
+    }
+    .product-card img {
+      max-width: 150px;
+      max-height: 150px;
+      object-fit: contain;
+      margin-bottom: 1rem;
+      border-radius: 10px;
+      background: white;
+      padding: 10px;
+    }
+    .product-name {
+      font-weight: 800;
+      font-size: 1.1rem;
+      margin-bottom: 0.3rem;
+      text-align: center;
+      color: #00f5ff;
+      text-shadow: 0 0 8px #00f5ffaa;
+    }
+    .product-brand {
+      font-size: 0.9rem;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+      color: #ffb347;
+    }
+    .product-price {
+      font-size: 1.2rem;
+      font-weight: 900;
+      color: #fff;
+      margin-bottom: 1rem;
+      text-shadow: 0 0 8px #ff4b2baa;
+    }
+    .offer-tag {
+      position: absolute;
+      top: 12px;
+      right: 12px;
+      background: #ff4b2b;
+      color: white;
+      padding: 5px 10px;
+      border-radius: 12px;
+      font-weight: 900;
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      box-shadow: 0 0 8px #ff4b2bcc;
+    }
+    button.add-to-cart {
+      background: #00b4d8;
+      border: none;
+      padding: 0.5rem 1.2rem;
+      color: white;
+      font-weight: 700;
+      border-radius: 30px;
+      cursor: pointer;
+      box-shadow: 0 0 10px #00b4d8cc;
+      transition: background 0.3s ease;
+    }
+    button.add-to-cart:hover {
+      background: #0077aa;
+    }
+    /* Cart modal */
+    #cartModal {
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(0,0,0,0.7);
+      display: none;
+      justify-content: center;
+      align-items: center;
+      z-index: 9999;
+    }
+    #cartModal.active {
+      display: flex;
+    }
+    .cart-content {
+      background: #111;
+      padding: 2rem;
+      width: 90%;
+      max-width: 500px;
+      border-radius: 20px;
+      box-shadow: 0 0 20px #00b4d8cc;
+      max-height: 80vh;
+      overflow-y: auto;
+      color: white;
+      position: relative;
+    }
+    .cart-content h2 {
+      margin-bottom: 1rem;
+      font-weight: 900;
+      letter-spacing: 1.5px;
+      font-size: 2rem;
+      text-align: center;
+      color: #00f5ff;
+      text-shadow: 0 0 10px #00f5ffcc;
+    }
+    .close-cart {
+      position: absolute;
+      top: 15px;
+      right: 15px;
+      background: #ff4b2b;
+      border: none;
+      color: white;
+      font-size: 1.4rem;
+      font-weight: 900;
+      border-radius: 50%;
+      width: 35px;
+      height: 35px;
+      cursor: pointer;
+      box-shadow: 0 0 10px #ff4b2bcc;
+    }
+    .cart-items {
+      margin-bottom: 1rem;
+    }
+    .cart-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 0.7rem;
+      border-bottom: 1px solid #444;
+      padding-bottom: 0.4rem;
+    }
+    .cart-item-name {
+      font-weight: 600;
+      color: #00f5ff;
+      max-width: 60%;
+    }
+    .cart-item-price {
+      font-weight: 700;
+      color: #ff4b2b;
+    }
+    .cart-total {
+      font-weight: 900;
+      font-size: 1.4rem;
+      text-align: right;
+      margin-top: 1rem;
+      color: #00ffab;
+      text-shadow: 0 0 10px #00ffabcc;
+    }
+    .order-button {
+      display: block;
+      width: 100%;
+      background: #ff4b2b;
+      color: white;
+      font-weight: 900;
+      font-size: 1.2rem;
+      padding: 0.8rem 0;
+      border: none;
+      border-radius: 50px;
+      cursor: pointer;
+      box-shadow: 0 0 15px #ff4b2bcc;
+      margin-top: 1rem;
+      text-align: center;
+      transition: background 0.3s ease;
+      text-decoration: none;
+    }
+    .order-button:hover {
+      background: #cc3a1d;
+    }
+    footer {
+      text-align: center;
+      padding: 1rem 2rem;
+      background: #111;
+      color: #777;
+      font-size: 0.9rem;
+      margin-top: auto;
+      user-select:none;
+    }
+    /* Scrollbar */
+    .cart-content::-webkit-scrollbar {
+      width: 6px;
+    }
+    .cart-content::-webkit-scrollbar-thumb {
+      background: #00b4d8cc;
+      border-radius: 3px;
+    }
+  </style>
 </head>
 <body>
-  <header>
-    <a href="#" class="brand-logo">
-      <img src="logo.png" alt="SNITCHX Logo" />
-    </a>
-    <h1 class="logo">SNITCHX</h1>
-    <nav>
-      <ul>
-        <li><a href="#shoes">Shoes</a></li>
-        <li><a href="#watches">Watches</a></li>
-        <li><a href="#perfumes">Perfumes</a></li>
-        <li><a href="#clothes">Clothes</a></li>
-        <li><a href="#specs">Specs</a></li>
-        <li><a href="#cart">Cart 🛒</a></li>
-      </ul>
-    </nav>
-  </header>
-
-  <section class="banner">
-    <h2>Buy 2 Get 1 Free | 75% OFF on Products ₹6000+ | Free Shipping!</h2>
-  </section>
-
+  <header>SnitchX <span class="gradient">Premium</span></header>
+  <nav>
+    <button class="filter-btn active" data-cat="all">All</button>
+    <button class="filter-btn" data-cat="shoes">Shoes</button>
+    <button class="filter-btn" data-cat="watches">Watches</button>
+    <button class="filter-btn" data-cat="clothes">Clothes</button>
+    <button class="filter-btn" data-cat="perfumes">Perfumes</button>
+    <button id="cartBtn" style="margin-left:auto; background:#00b4d8;">Cart (<span id="cartCount">0</span>)</button>
+  </nav>
   <main>
-    <section id="shoes" class="product-section">
-      <h2>Shoes</h2>
-      <div class="products">
-        <div class="product-card">
-          <img src="https://via.placeholder.com/250x200?text=Nike+Air+Max" />
-          <h3>Nike Air Max</h3>
-          <p class="price">₹4500</p>
-          <button onclick="addToCart('Nike Air Max', 4500)">Add to Cart</button>
-        </div>
-        <div class="product-card">
-          <img src="https://via.placeholder.com/250x200?text=Adidas+Boost" />
-          <h3>Adidas Boost</h3>
-          <p class="price">₹6000 <span class="offer">75% OFF</span></p>
-          <button onclick="addToCart('Adidas Boost', 6000)">Add to Cart</button>
-        </div>
-      </div>
-    </section>
-
-    <section id="cart" class="cart-section">
-      <h2>Your Cart</h2>
-      <ul id="cart-list"></ul>
-      <p id="total-price">Total: ₹0</p>
-      <a id="whatsapp-checkout" target="_blank">Checkout on WhatsApp</a>
-    </section>
+    <div class="products-grid" id="productsGrid">
+      <!-- Products will load here dynamically -->
+    </div>
   </main>
 
-  <footer>
-    <p>&copy; 2025 SNITCHX. All Rights Reserved.</p>
-  </footer>
-</body>
-</html>
+  <!-- Cart Modal -->
+  <div id="cartModal">
+    <div class="cart-content">
+      <button class="close-cart" id="closeCart">&times;</button>
+      <h2>Your Cart</h2>
+      <div class="cart-items" id="cartItems"></div>
+      <div class="cart-total" id="cartTotal">Total: ₹0</div>
+      <a href="#" id="orderBtn" class="order-button" target="_blank" rel="noopener noreferrer">Order on WhatsApp</a>
+    </div>
+  </div>
+
+  <script>
+    const products = [
+      // SHOES
+      {id:1, name:"Nike Air Max 270", brand:"Nike", category:"shoes", price: randomPrice(1500, 4000), img:"https://i.imgur.com/1A7XlFw.png"},
+      {id:2, name:"Adidas Ultraboost", brand:"Adidas", category:"shoes", price: randomPrice(1500, 4000), img:"https://i.imgur.com/fNc98zY.png"},
+      {id:3, name:"Roadster Sneakers", brand:"Roadster", category:"shoes", price: randomPrice(1200, 3000), img:"https://i.imgur.com/Wv6ZTZk.png"},
+
+      // WATCHES
+      {id:4, name:"Rolex Submariner", brand:"Rolex", category:"watches", price: randomPrice(5000, 9000), img:"https://i.imgur.com/zH22Wqv.png", offer:true},
+      {id:5, name:"Omega Seamaster", brand:"Omega", category:"watches", price: randomPrice(4000, 8500), img:"https://i.imgur.com/GqS9tNW.png"},
+      {id:6, name:"Tag Heuer Carrera", brand:"Tag Heuer", category:"watches", price: randomPrice(3500, 7000), img:"https://i.imgur.com/14rc9Pc.png"},
+
+      // CLOTHES
+      {id:7, name:"Gucci Leather Jacket", brand:"Gucci", category:"clothes", price: randomPrice(3000, 6000), img:"https://i.imgur.com/2Ew69qv.png"},
+      {id:8, name:"Balenciaga Hoodie", brand:"Balenciaga", category:"clothes", price: randomPrice(3000, 6000), img:"https://i.imgur.com/xWkMX52.png", offer:true},
+      {id:9, name:"Off-White T-Shirt", brand:"Off-White", category:"clothes", price: randomPrice(1500, 4000), img:"https://i.imgur.com/OvF0FNO.png"},
+
+      // PERFUMES
+      {id:10, name:"Chanel No.5", brand:"Chanel", category:"perfumes", price: randomPrice(2000, 6000), img:"https://i.imgur.com/7Nz1Goi.png"},
+      {id:11, name:"Dior Sauvage", brand:"Dior", category:"perfumes", price: randomPrice(2500, 6000), img:"https://i.imgur.com/jXxXtTH.png", offer:true},
+      {id:12, name:"Tom Ford Black Orchid", brand:"Tom Ford", category:"perfumes", price: randomPrice(3500, 6000), img:"https://i.imgur.com/vExIuqP.png"},
+    ];
+
+    // Use sessionStorage to store prices so they don't change on refresh
+    function randomPrice(min, max) {
+      return Math.floor(Math.random() * (max - min + 1)) + min;
+    }
+
+    function loadPricesOnce() {
+      if (!sessionStorage.getItem('prices')) {
+        const prices = {};
+        products.forEach(p => {
+          let price = p.price;
+          // For offers, only if price > 6000 apply 75% off
+          if (price > 6000) {
+            p.offer = true;
+          }
+          prices[p.id] = price;
+        });
+        sessionStorage.setItem('prices', JSON.stringify(prices));
+      }
+      const storedPrices = JSON.parse(sessionStorage.getItem('prices'));
+      products.forEach(p => {
+        p.price = storedPrices[p.id];
+      });
+    }
+    loadPricesOnce();
+
+    const productsGrid = document.getElementById('productsGrid');
+    const filterBtns = document.querySelectorAll('.filter-btn');
+    const cartBtn = document.getElementById('cartBtn');
+    const cartModal = document.getElementById('cartModal');
+    const closeCart = document.getElementById('closeCart');
+    const cartItemsDiv = document.getElementById('cartItems');
+    const cartTotalDiv = document.getElementById('cartTotal');
+    const orderBtn = document.getElementById('orderBtn');
+
+    let currentCategory = "all";
+    let cart = [];
+
+    // Show products by category
+    function showProducts(category) {
+      productsGrid.innerHTML = '';
+      const filtered = category === "all" ? products : products.filter(p => p.category === category);
+      filtered.forEach(p => {
+        const card = document.createElement('div');
+        card.classList.add('product-card');
+
+        card.innerHTML = `
+          ${p.offer && p.price > 6000 ? `<div class="offer-tag">75% OFF</div>` : ''}
+          <img src="${p.img}" alt="${p.name}" />
+          <div class="product-name">${p.name}</div>
+          <div class="product-brand">${p.brand}</div>
+          <div class="product-price">₹${p.price.toLocaleString()}</div>
+          <button class="add-to-cart" data-id="${p.id}">Add to Cart</button>
+        `;
+        productsGrid.appendChild(card);
+      });
+
+      // Add event listeners to add-to-cart buttons
+      document.querySelectorAll('.add-to-cart').forEach(btn => {
+        btn.addEventListener('click', () => {
+          const id = parseInt(btn.getAttribute('data-id'));
+          addToCart(id);
+        });
+      });
+    }
+
+    // Filter buttons click
+    filterBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        filterBtns.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        currentCategory = btn.dataset.cat;
+        showProducts(currentCategory);
+      });
+    });
+
+    // Cart functions
+    function addToCart(id) {
+      const prod = products.find(p => p.id === id);
+      if (!prod) return;
+      const exist = cart.find(i => i.id === id);
+      if (exist) {
+        exist.qty++;
+      } else {
+        cart.push({...prod, qty:1});
+      }
+      updateCartCount();
+    }
+
+    function updateCartCount() {
+      const totalQty = cart.reduce((acc, i) => acc + i.qty, 0);
+      document.getElementById('cartCount').textContent = totalQty;
+    }
+
+    cartBtn.addEventListener('click', () => {
+      if (cart.length === 0) {
+        alert("Cart is empty!");
+        return;
+      }
+      renderCart();
+      cartModal.classList.add('active');
+    });
+
+    closeCart.addEventListener('click', () => {
+      cartModal.classList.remove('active');
+    });
+
+    function renderCart() {
+      cartItemsDiv.innerHTML = '';
+      let total = 0;
+      cart.forEach(item => {
+        total += item.price * item.qty;
+        const div = document.createElement('div');
+        div.classList.add('cart-item');
+        div.innerHTML = `
+          <div class="cart-item-name">${item.name} x${item.qty}</div>
+          <div class="cart-item-price">₹${(item.price * item.qty).toLocaleString()}</div>
+        `;
+        cartItemsDiv.appendChild(div);
+      });
+      cartTotalDiv.textContent = `Total: ₹${total.toLocaleString()}`;
+
+      // Update WhatsApp order link
+      const orderText = cart.map(i => `${i.name} x${i.qty} - ₹${(i.price * i.qty).toLocaleString()}`).join('%0A');
+      const totalText = `Total: ₹${total.toLocaleString()}`;
+      const message = `Hello, I want to place an order for:%0A${orderText}%0A${totalText}%0AThank you!`;
+      orderBtn.href = `https://wa.me/919876543210
