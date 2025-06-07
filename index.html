@@ -1,95 +1,120 @@
-<!DOCTYPE html><html lang="en">
+<!DOCTYPE html>
+<html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>SnitchX Shop</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>SnitchX Premium Store</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
   <style>
-    body { font-family: Arial, sans-serif; margin: 0; padding: 0; }
-    header, footer { background: #111; color: #fff; padding: 10px 20px; text-align: center; }
-    nav { display: flex; justify-content: center; gap: 20px; padding: 10px; background: #222; }
-    nav a { color: white; text-decoration: none; font-weight: bold; }
-    #banner-slider img { width: 100%; max-width: 100%; height: auto; display: block; margin-bottom: 20px; }
-    #search-bar { width: 80%; margin: 20px auto; display: block; padding: 10px; font-size: 16px; }
-    .products { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 20px; padding: 20px; }
-    .product-card { border: 1px solid #ccc; padding: 10px; border-radius: 8px; text-align: center; }
-    .product-card img { max-width: 100%; height: 150px; object-fit: cover; }
-    .dark { background-color: #121212; color: white; }
-    .dark .product-card { background: #222; border-color: #555; }
-    .dark nav { background: #333; }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'Segoe UI', sans-serif; background: #f9f9f9; color: #333; }
+    header { background: #000; color: white; padding: 20px; text-align: center; font-size: 26px; letter-spacing: 1px; }
+    .banner { background: url('https://i.imgur.com/lKJiT77.png') no-repeat center center/cover; height: 180px; display: flex; align-items: center; justify-content: center; color: white; font-size: 28px; font-weight: bold; }
+    .categories { display: flex; justify-content: center; padding: 20px; flex-wrap: wrap; }
+    .categories button { margin: 10px; padding: 10px 20px; background: #222; color: white; border: none; cursor: pointer; border-radius: 5px; transition: background 0.3s ease; }
+    .categories button:hover, .categories button.active { background: #444; }
+    .product-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 20px; padding: 20px; }
+    .product { background: white; border-radius: 10px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); padding: 15px; text-align: center; }
+    .product img { width: 100%; height: 150px; object-fit: cover; border-radius: 5px; }
+    .product h3 { margin: 10px 0 5px; font-size: 18px; }
+    .product p { margin: 0; color: #555; font-weight: 700; }
+    .add-btn { background: #28a745; color: white; border: none; padding: 8px 15px; margin-top: 10px; cursor: pointer; border-radius: 4px; transition: background 0.3s ease; }
+    .add-btn:hover { background: #218838; }
+    .cart-link { position: fixed; top: 20px; right: 20px; background: #007bff; color: white; padding: 10px 15px; text-decoration: none; border-radius: 5px; z-index: 10; font-weight: 700; }
+    footer { text-align: center; padding: 20px; background: #111; color: white; margin-top: 30px; font-size: 14px; }
   </style>
 </head>
 <body>
-  <header>
-    <h1>SnitchX Official Store</h1>
-    <button onclick="toggleDark()">🌙 Toggle Dark Mode</button>
-  </header>  <nav>
-    <a href="#" onclick="loadCategory('shoes')">Shoes</a>
-    <a href="#" onclick="loadCategory('watches')">Watches</a>
-    <a href="#" onclick="loadCategory('clothes')">Clothes</a>
-    <a href="#" onclick="loadCategory('perfumes')">Perfumes</a>
-  </nav>  <div id="banner-slider">
-    <img src="https://via.placeholder.com/1200x300?text=SnitchX+Premium+Sale" />
-    <img src="https://via.placeholder.com/1200x300?text=Flat+70%25+OFF+on+Watches" />
-  </div>  <input type="text" id="search-bar" placeholder="Search Products..." />  <section class="products" id="product-list"></section>  <footer>
-    <p>&copy; 2025 SnitchX Official Store. All rights reserved.</p>
-  </footer>  <script>
-    const allProducts = {
-      shoes: Array.from({ length: 10 }, (_, i) => ({ id: 'sh' + i, name: `Shoe Model ${i+1}`, price: [1500, 2000, 4000][i%3], img: 'https://via.placeholder.com/200x150?text=Shoe+' + (i+1) })),
-      watches: Array.from({ length: 10 }, (_, i) => ({ id: 'wa' + i, name: `Watch Model ${i+1}`, price: 1800 + i * 800, img: 'https://via.placeholder.com/200x150?text=Watch+' + (i+1) })),
-      clothes: Array.from({ length: 10 }, (_, i) => ({ id: 'cl' + i, name: `Clothing ${i+1}`, price: 1200 + i * 300, img: 'https://via.placeholder.com/200x150?text=Cloth+' + (i+1) })),
-      perfumes: Array.from({ length: 10 }, (_, i) => ({ id: 'pf' + i, name: `Perfume ${i+1}`, price: 1500 + i * 500, img: 'https://via.placeholder.com/200x150?text=Perfume+' + (i+1) }))
+  <header>SNITCHX PREMIUM STORE</header>
+  <div class="banner">🔥 FLAT 50% OFF ON SELECTED STYLES</div>
+  <a href="cart.html" class="cart-link"><i class="fas fa-shopping-cart"></i> Cart (<span id="cart-count">0</span>)</a>
+  
+  <div class="categories">
+    <button class="active" onclick="filterCategory('all', this)">All</button>
+    <button onclick="filterCategory('shoes', this)">Shoes</button>
+    <button onclick="filterCategory('watches', this)">Watches</button>
+    <button onclick="filterCategory('clothes', this)">Clothes</button>
+    <button onclick="filterCategory('perfumes', this)">Perfumes</button>
+  </div>
+  
+  <div class="product-grid" id="product-list"></div>
+  
+  <footer>© 2025 SnitchX | Built with ❤️ by MidowWebDev</footer>
+  
+  <script>
+    // Products sample data with price ranges ₹1200-₹20000
+    const categories = ['shoes', 'watches', 'clothes', 'perfumes'];
+    const products = [];
+
+    // Helper to generate random price in given range
+    function randomPrice(min, max) {
+      return Math.floor(Math.random() * (max - min + 1)) + min;
+    }
+
+    // Sample images (use your own or placeholders)
+    const images = {
+      shoes: ['https://i.imgur.com/F6pXw1G.jpg', 'https://i.imgur.com/kGVYpKP.jpg', 'https://i.imgur.com/FYzFJzD.jpg'],
+      watches: ['https://i.imgur.com/hfSkcJb.jpg', 'https://i.imgur.com/VhQkAGe.jpg', 'https://i.imgur.com/6oXwTbw.jpg'],
+      clothes: ['https://i.imgur.com/3szZIAV.jpg', 'https://i.imgur.com/yMNDcmx.jpg', 'https://i.imgur.com/5QpQZtp.jpg'],
+      perfumes: ['https://i.imgur.com/nZ7AwI4.jpg', 'https://i.imgur.com/QBR2n4b.jpg', 'https://i.imgur.com/8L7BfUj.jpg']
     };
 
-    localStorage.setItem("snitchx-products", JSON.stringify(allProducts));
-    let currentCategory = 'shoes';
+    // Create 150 products max, random distribution per category
+    for (let cat of categories) {
+      for (let i = 1; i <= 37; i++) {
+        products.push({
+          name: `${cat.charAt(0).toUpperCase() + cat.slice(1)} Product ${i}`,
+          price: randomPrice(1200, 20000),
+          img: images[cat][i % images[cat].length],
+          cat: cat
+        });
+      }
+    }
 
-    const productsContainer = document.getElementById("product-list");
-    const searchBar = document.getElementById("search-bar");
+    // Cart count update
+    function updateCartCount() {
+      const cart = JSON.parse(localStorage.getItem('snitchx-cart')) || [];
+      const count = cart.reduce((sum, p) => sum + p.qty, 0);
+      document.getElementById('cart-count').textContent = count;
+    }
 
-    function showProducts(list) {
-      productsContainer.innerHTML = '';
-      list.forEach(p => {
-        const card = document.createElement('div');
-        card.className = 'product-card';
-        card.innerHTML = `
-          <a href="product.html?id=${p.id}" style="text-decoration:none; color:inherit;">
-            <img src="${p.img}" alt="${p.name}" />
-            <div class="product-info">
-              <h3>${p.name}</h3>
-              <p>₹${p.price.toLocaleString()}</p>
-              <button onclick="addToCart('${p.id}')">Add to Cart</button>
-            </div>
-          </a>
+    function loadProducts(filter = 'all') {
+      const list = document.getElementById("product-list");
+      list.innerHTML = '';
+      const filtered = filter === 'all' ? products : products.filter(p => p.cat === filter);
+      filtered.forEach(p => {
+        list.innerHTML += `
+          <div class="product">
+            <img src="${p.img}" alt="${p.name}">
+            <h3>${p.name}</h3>
+            <p>₹${p.price.toLocaleString()}</p>
+            <button class="add-btn" onclick='addToCart(${JSON.stringify(p)})'>Add to Cart</button>
+          </div>
         `;
-        productsContainer.appendChild(card);
       });
     }
 
-    function loadCategory(cat) {
-      currentCategory = cat;
-      showProducts(allProducts[cat]);
-    }
-
-    searchBar.addEventListener('input', () => {
-      const val = searchBar.value.toLowerCase();
-      const filtered = allProducts[currentCategory].filter(p => p.name.toLowerCase().includes(val));
-      showProducts(filtered);
-    });
-
-    function toggleDark() {
-      document.body.classList.toggle('dark');
-    }
-
-    function addToCart(id) {
-      let cart = JSON.parse(localStorage.getItem('snitchx-cart')) || [];
-      const product = allProducts[currentCategory].find(p => p.id === id);
-      const exists = cart.find(i => i.id === id);
-      if (exists) exists.qty += 1;
-      else cart.push({...product, qty: 1});
+    function addToCart(product) {
+      let cart = JSON.parse(localStorage.getItem("snitchx-cart")) || [];
+      const existing = cart.find(p => p.name === product.name);
+      if (existing) existing.qty += 1;
+      else cart.push({ ...product, qty: 1 });
       localStorage.setItem("snitchx-cart", JSON.stringify(cart));
+      updateCartCount();
       alert("Added to cart!");
     }
 
-    loadCategory(currentCategory);
-  </script></body>
+    function filterCategory(cat, btn) {
+      loadProducts(cat);
+      // Button active style
+      document.querySelectorAll('.categories button').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+    }
+
+    window.onload = () => {
+      loadProducts();
+      updateCartCount();
+    };
+  </script>
+</body>
 </html>
