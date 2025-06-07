@@ -2,402 +2,57 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>SNITCHX | Premium Streetwear Brand</title>
-  <style>
-    /* Google Fonts */
-    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
-
-    /* Reset */
-    * {
-      margin: 0; padding: 0; box-sizing: border-box;
-      font-family: 'Poppins', sans-serif;
-    }
-    body {
-      background: #121212;
-      color: #eee;
-      min-height: 100vh;
-      display: flex; flex-direction: column;
-      align-items: center;
-      padding: 20px;
-    }
-    /* Gradient branding text */
-    .logo {
-      font-weight: 900;
-      font-size: 3.5rem;
-      background: linear-gradient(90deg, #ff4d6d, #6b6bff);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      letter-spacing: 6px;
-      margin-bottom: 10px;
-      user-select: none;
-    }
-    /* Tagline */
-    .tagline {
-      font-weight: 400;
-      font-size: 1.2rem;
-      color: #aaa;
-      margin-bottom: 30px;
-      letter-spacing: 1px;
-    }
-
-    /* Container */
-    .container {
-      max-width: 1200px;
-      width: 100%;
-    }
-
-    /* Categories nav */
-    .categories {
-      display: flex;
-      justify-content: center;
-      gap: 25px;
-      margin-bottom: 40px;
-      flex-wrap: wrap;
-    }
-    .category-btn {
-      background: #222;
-      color: #eee;
-      border-radius: 40px;
-      padding: 12px 28px;
-      cursor: pointer;
-      font-weight: 600;
-      transition: all 0.3s ease;
-      border: 2px solid transparent;
-      user-select: none;
-    }
-    .category-btn:hover,
-    .category-btn.active {
-      background: linear-gradient(90deg, #ff4d6d, #6b6bff);
-      border-color: #ff4d6d;
-      color: white;
-      box-shadow: 0 0 8px #ff4d6daa;
-    }
-
-    /* Products grid */
-    .products {
-      display: grid;
-      grid-template-columns: repeat(auto-fill,minmax(250px,1fr));
-      gap: 28px;
-      padding-bottom: 60px;
-    }
-
-    /* Product card */
-    .product-card {
-      background: #1f1f1f;
-      border-radius: 15px;
-      overflow: hidden;
-      box-shadow: 0 6px 14px rgb(0 0 0 / 0.5);
-      display: flex;
-      flex-direction: column;
-      transition: transform 0.3s ease;
-      position: relative;
-    }
-    .product-card:hover {
-      transform: translateY(-6px);
-      box-shadow: 0 12px 30px rgb(255 77 109 / 0.6);
-    }
-    .product-image {
-      width: 100%;
-      height: 220px;
-      object-fit: cover;
-      border-bottom: 1px solid #333;
-      user-select: none;
-    }
-    .product-info {
-      padding: 15px 18px;
-      flex-grow: 1;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-    }
-    .product-name {
-      font-weight: 700;
-      font-size: 1.1rem;
-      color: #f2f2f2;
-      margin-bottom: 7px;
-      user-select: text;
-    }
-    .product-brand {
-      font-size: 0.85rem;
-      font-weight: 500;
-      color: #888;
-      margin-bottom: 10px;
-      font-style: italic;
-    }
-    .product-price {
-      font-weight: 700;
-      font-size: 1.2rem;
-      color: #ff4d6d;
-      user-select: text;
-    }
-    .offer-badge {
-      position: absolute;
-      top: 12px;
-      right: 12px;
-      background: #ff244d;
-      color: white;
-      padding: 5px 12px;
-      font-weight: 700;
-      font-size: 0.85rem;
-      border-radius: 12px;
-      box-shadow: 0 0 6px #ff244daa;
-      user-select: none;
-    }
-    /* Order button */
-    .order-btn {
-      margin-top: 12px;
-      background: #6b6bff;
-      color: white;
-      border: none;
-      border-radius: 40px;
-      padding: 12px 0;
-      font-weight: 700;
-      font-size: 1rem;
-      cursor: pointer;
-      transition: background 0.3s ease;
-      user-select: none;
-      box-shadow: 0 4px 12px #6b6bffaa;
-    }
-    .order-btn:hover {
-      background: #ff4d6d;
-      box-shadow: 0 6px 18px #ff4d6daa;
-    }
-
-    /* Footer */
-    footer {
-      margin-top: 50px;
-      text-align: center;
-      color: #555;
-      font-size: 0.9rem;
-      user-select: none;
-    }
-
-    /* Hide password modal initially */
-    #password-modal {
-      position: fixed;
-      top: 0; left: 0; right: 0; bottom: 0;
-      background: rgba(0,0,0,0.9);
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      z-index: 9999;
-      user-select: none;
-    }
-    #password-modal.hidden {
-      display: none;
-    }
-    #password-box {
-      background: #222;
-      padding: 30px 35px;
-      border-radius: 12px;
-      text-align: center;
-      width: 320px;
-      box-shadow: 0 0 30px #ff4d6d;
-    }
-    #password-box h2 {
-      margin-bottom: 15px;
-      font-weight: 700;
-      color: #ff4d6d;
-      font-size: 1.8rem;
-      user-select: text;
-    }
-    #password-input {
-      width: 100%;
-      padding: 10px 14px;
-      border-radius: 8px;
-      border: none;
-      outline: none;
-      font-size: 1.1rem;
-      margin-bottom: 20px;
-    }
-    #password-submit {
-      background: #ff4d6d;
-      border: none;
-      color: white;
-      font-weight: 700;
-      padding: 12px 0;
-      width: 100%;
-      border-radius: 40px;
-      cursor: pointer;
-      transition: background 0.3s ease;
-      user-select: none;
-    }
-    #password-submit:hover {
-      background: #6b6bff;
-    }
-    /* Responsive */
-    @media (max-width: 480px) {
-      .product-image {
-        height: 180px;
-      }
-      .container {
-        padding: 0 15px;
-      }
-      .logo {
-        font-size: 2.7rem;
-      }
-    }
-  </style>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>SNITCHX Premium</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
 
-  <!-- Password Modal -->
-  <div id="password-modal">
-    <div id="password-box">
-      <h2>Enter Admin Password</h2>
-      <input type="password" id="password-input" placeholder="Password..." autocomplete="off" />
-      <button id="password-submit">Unlock</button>
-    </div>
+  <div id="admin-lock" class="lock-screen">
+    <h2>Admin Login</h2>
+    <input type="password" id="adminPass" placeholder="Enter Admin Password" />
+    <button onclick="checkPass()">Unlock</button>
   </div>
 
-  <div class="container" id="main-content" style="display:none;">
+  <div id="mainSite" style="display:none;">
+    <!-- 👇 Apna store content yaha daal -->
+    <h1>Welcome to SNITCHX</h1>
+    <p>Premium Streetwear, International Shipping, OG Designs</p>
 
-    <div class="logo">SNITCHX</div>
-    <div class="tagline">Premium Streetwear & Accessories</div>
-
-    <nav class="categories" id="categories">
-      <button class="category-btn active" data-cat="shoes">Shoes</button>
-      <button class="category-btn" data-cat="watches">Watches</button>
-      <button class="category-btn" data-cat="perfumes">Perfumes</button>
-      <button class="category-btn" data-cat="clothes">Clothes</button>
-    </nav>
-
-    <section class="products" id="products"></section>
-
-    <footer>
-      &copy; 2025 SNITCHX | Contact: +91 8793727113 | WhatsApp Orders Only
-    </footer>
+    <!-- Example Product Section -->
+    <section class="product-section">
+      <h2>Shoes - Nike</h2>
+      <div class="product-card">
+        <img src="https://via.placeholder.com/150" alt="Nike Shoe">
+        <h3>Nike Air Max</h3>
+        <p>₹4200</p>
+        <button>Order via WhatsApp</button>
+      </div>
+    </section>
   </div>
 
   <script>
-    // Admin password protection
-    const passwordModal = document.getElementById('password-modal');
-    const passwordInput = document.getElementById('password-input');
-    const passwordSubmit = document.getElementById('password-submit');
-    const mainContent = document.getElementById('main-content');
-    const ADMIN_PASSWORD = 'MIDOW'; // Set your admin password here
+    const correctPass = "Mishty.12";
 
-    passwordSubmit.onclick = () => {
-      if(passwordInput.value === ADMIN_PASSWORD) {
-        passwordModal.classList.add('hidden');
-        mainContent.style.display = 'block';
+    function checkPass() {
+      const entered = document.getElementById("adminPass").value;
+      if (entered === correctPass) {
+        document.getElementById("admin-lock").style.display = "none";
+        document.getElementById("mainSite").style.display = "block";
       } else {
-        alert('Wrong Password! Try Again.');
-        passwordInput.value = '';
-      }
-    };
-
-    // Product data with random prices 1200-20000
-    // Brands and products with professional names
-    const productsData = {
-      shoes: [
-        {name:"Nike Air Max 270", brand:"Nike", price: randomPrice(1500, 4000), img:"https://images.unsplash.com/photo-1512499617640-c2f99905418f?auto=format&fit=crop&w=400&q=80"},
-        {name:"Adidas Ultraboost", brand:"Adidas", price: randomPrice(1500, 4000), img:"https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=400&q=80"},
-        {name:"Roadster Sneakers", brand:"Roadster", price: randomPrice(1500, 4000), img:"https://images.unsplash.com/photo-1552346158-9d1a1c2cd198?auto=format&fit=crop&w=400&q=80"},
-        // add more products up to 150 if needed
-      ],
-      watches: [
-        {name:"Rolex Submariner", brand:"Rolex", price: randomPrice(5000, 9000), img:"https://images.unsplash.com/photo-1503397334063-8ab6f4150ff8?auto=format&fit=crop&w=400&q=80"},
-        {name:"Omega Seamaster", brand:"Omega", price: randomPrice(5000, 9000), img:"https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&w=400&q=80"},
-        {name:"Tag Heuer Carrera", brand:"Tag Heuer", price: randomPrice(5000, 9000), img:"https://images.unsplash.com/photo-1517336714731-489689fd1ca8?auto=format&fit=crop&w=400&q=80"},
-      ],
-      perfumes: [
-        {name:"Chanel No.5", brand:"Chanel", price: randomPrice(3500, 7000), img:"https://images.unsplash.com/photo-1501466044931-62695aada8e0?auto=format&fit=crop&w=400&q=80"},
-        {name:"Dior Sauvage", brand:"Dior", price: randomPrice(3500, 7000), img:"https://images.unsplash.com/photo-1531717692607-7d9e8b15f33c?auto=format&fit=crop&w=400&q=80"},
-        {name:"Tom Ford Noir", brand:"Tom Ford", price: randomPrice(3500, 7000), img:"https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?auto=format&fit=crop&w=400&q=80"},
-      ],
-      clothes: [
-        {name:"Gucci Hoodie", brand:"Gucci", price: randomPrice(4000, 8000), img:"https://images.unsplash.com/photo-1521335629791-ce4aec67dd30?auto=format&fit=crop&w=400&q=80"},
-        {name:"Prada Jacket", brand:"Prada", price: randomPrice(4000, 8000), img:"https://images.unsplash.com/photo-1541099649105-f69ad21f3246?auto=format&fit=crop&w=400&q=80"},
-        {name:"Balenciaga T-shirt", brand:"Balenciaga", price: randomPrice(4000, 8000), img:"https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?auto=format&fit=crop&w=400&q=80"},
-      ]
-    };
-
-    // Return price fixed on page load, no change on refresh (using localStorage)
-    function randomPrice(min, max){
-      // return fixed random price for each product
-      // price stored in localStorage with product name key
-      return function(name){
-        let key = 'price_' + name.replace(/\s+/g, '_');
-        let price = localStorage.getItem(key);
-        if(price) return parseInt(price);
-        let val = Math.floor(Math.random() * (max - min + 1)) + min;
-        localStorage.setItem(key, val);
-        return val;
+        alert("Wrong password!");
       }
     }
 
-    // Get price for products by name
-    const getPrice = (() => {
-      const priceGen = {};
-      return (name, min, max) => {
-        if(!priceGen[name]) {
-          priceGen[name] = (() => {
-            let key = 'price_' + name.replace(/\s+/g, '_');
-            let p = localStorage.getItem(key);
-            if(p) return parseInt(p);
-            let val = Math.floor(Math.random() * (max - min + 1)) + min;
-            localStorage.setItem(key, val);
-            return val;
-          })();
-        }
-        return priceGen[name];
+    // Auto show full site to users (admin lock only on "?admin=true")
+    window.onload = function() {
+      const url = new URL(window.location.href);
+      if (!url.searchParams.get("admin")) {
+        document.getElementById("admin-lock").style.display = "none";
+        document.getElementById("mainSite").style.display = "block";
       }
-    })();
-
-    // Render products
-    const productsContainer = document.getElementById('products');
-    const categoryButtons = document.querySelectorAll('.category-btn');
-
-    function renderProducts(category) {
-      productsContainer.innerHTML = '';
-      const items = productsData[category];
-      items.forEach(product => {
-        // Get stored price or set random price if not present
-        let price = getPrice(product.name, 
-          category === 'watches' ? 1800 : 1200,
-          category === 'watches' ? 9000 : 6000);
-
-        // Check offer badge condition (price > 6000)
-        const offerBadge = price > 6000 ? `<div class="offer-badge">75% OFF</div>` : '';
-
-        productsContainer.innerHTML += `
-          <article class="product-card">
-            ${offerBadge}
-            <img src="${product.img}" alt="${product.name}" class="product-image" />
-            <div class="product-info">
-              <div>
-                <h3 class="product-name">${product.name}</h3>
-                <div class="product-brand">${product.brand}</div>
-              </div>
-              <div class="product-price">₹${price.toLocaleString()}</div>
-              <button class="order-btn" onclick="orderWhatsApp('${product.name}', '${price}')">Order on WhatsApp</button>
-            </div>
-          </article>
-        `;
-      });
     }
-
-    // Handle category switching
-    categoryButtons.forEach(btn => {
-      btn.addEventListener('click', () => {
-        categoryButtons.forEach(b => b.classList.remove('active'));
-        btn.classList.add('active');
-        renderProducts(btn.getAttribute('data-cat'));
-      });
-    });
-
-    // WhatsApp order
-    function orderWhatsApp(productName, price) {
-      let phone = '+918793727113'; // Your WhatsApp number
-      let msg = encodeURIComponent(`Hello, I want to order "${productName}" priced at ₹${price}. Please assist.`);
-      let url = `https://wa.me/${phone.replace(/\D/g,'')}?text=${msg}`;
-      window.open(url, '_blank');
-    }
-
-    // Initial load
-    renderProducts('shoes');
   </script>
+
 </body>
 </html>
