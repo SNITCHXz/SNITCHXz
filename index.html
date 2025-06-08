@@ -2,33 +2,76 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>SNITCHX Official Store</title>
+  <title>SNITCHX - Premium Streetwear</title>
   <link rel="stylesheet" href="style.css" />
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;700&display=swap" rel="stylesheet">
+  <script src="script.js" defer></script>
 </head>
 <body>
-  <header>
-    <div class="logo">SNITCH<span>X</span></div>
-    <nav>
-      <ul>
-        <li><a href="#shoes">Shoes</a></li>
-        <li><a href="#watches">Watches</a></li>
-        <li><a href="#clothes">Clothes</a></li>
-        <li><a href="#perfumes">Perfumes</a></li>
-        <li><a href="#specs">Specs</a></li>
-      </ul>
-    </nav>
-    <div class="cart">
-      <a href="#" id="view-cart">🛒 Cart (<span id="cart-count">0</span>)</a>
+  <header class="header">
+    <div class="container">
+      <h1 class="logo gradient-text">SNITCHX</h1>
+      <nav class="nav">
+        <a href="#shoes">Shoes</a>
+        <a href="#watches">Watches</a>
+        <a href="#clothes">Clothes</a>
+        <a href="#perfumes">Perfumes</a>
+        <a href="#contact">Contact</a>
+      </nav>
     </div>
-  </header>  <section class="banner">
-    <h1>Buy 2 Get 1 Free | Limited Time Offer</h1>
-  </section>  <main id="product-container">
-    <!-- Products dynamically inserted here by JS -->
-  </main>  <footer>
-    <p>&copy; 2025 SNITCHX | Powered by Midow</p>
-    <p><a href="https://wa.me/8793727113" target="_blank">Order Now on WhatsApp</a></p>
-  </footer>  <script src="script.js"></script></body>
+  </header>  <section class="hero">
+    <div class="hero-content">
+      <h2>Unleash Your Style</h2>
+      <p>Premium fashion handpicked for international vibes. Be iconic.</p>
+    </div>
+  </section>  <section class="products" id="shoes">
+    <h2>Shoes Collection</h2>
+    <div class="product-grid">
+      <!-- Sample shoe product -->
+      <div class="product-card">
+        <img src="images/shoe1.jpg" alt="Nike OG" />
+        <h3>Nike OG High</h3>
+        <p class="price">₹2,500</p>
+        <button class="buy-btn" onclick="orderNow('Nike OG High - ₹2500')">Buy Now</button>
+      </div>
+      <!-- Add more shoes up to 20 -->
+    </div>
+  </section>  <section class="products" id="watches">
+    <h2>Watches Collection</h2>
+    <div class="product-grid">
+      <div class="product-card">
+        <img src="images/watch1.jpg" alt="Rolex Explorer" />
+        <h3>Rolex Explorer</h3>
+        <p class="price">₹8,500</p>
+        <button class="buy-btn" onclick="orderNow('Rolex Explorer - ₹8500')">Buy Now</button>
+      </div>
+    </div>
+  </section>  <section class="products" id="clothes">
+    <h2>Clothing Collection</h2>
+    <div class="product-grid">
+      <div class="product-card">
+        <img src="images/clothing1.jpg" alt="Balenciaga Hoodie" />
+        <h3>Balenciaga Hoodie</h3>
+        <p class="price">₹4,200</p>
+        <button class="buy-btn" onclick="orderNow('Balenciaga Hoodie - ₹4200')">Buy Now</button>
+      </div>
+    </div>
+  </section>  <section class="products" id="perfumes">
+    <h2>Perfumes Collection</h2>
+    <div class="product-grid">
+      <div class="product-card">
+        <img src="images/perfume1.jpg" alt="Dior Sauvage" />
+        <h3>Dior Sauvage</h3>
+        <p class="price">₹3,200</p>
+        <button class="buy-btn" onclick="orderNow('Dior Sauvage - ₹3200')">Buy Now</button>
+      </div>
+    </div>
+  </section>  <section id="contact" class="contact">
+    <h2>Place Order / Inquiry</h2>
+    <p>DM us on WhatsApp to confirm your order now!</p>
+    <a href="https://wa.me/918793727113" target="_blank" class="whatsapp-btn">Chat on WhatsApp</a>
+  </section>  <footer class="footer">
+    <p>&copy; 2025 SNITCHX. All rights reserved.</p>
+  </footer>
+</body>
 </html>
