@@ -2,35 +2,33 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>SNITCHX - Premium Streetwear</title>
+  <title>SNITCHX Official Store</title>
   <link rel="stylesheet" href="style.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;800&display=swap" rel="stylesheet" />
-  <script src="script.js" defer></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;800&display=swap" rel="stylesheet">
 </head>
 <body>
-  <header class="header">
-    <div class="logo">SNITCHX</div>
-    <div class="cart-icon" onclick="toggleCart()">
-      🛒 <span id="cart-count">0</span>
+  <header>
+    <div class="logo">SNITCH<span>X</span></div>
+    <nav>
+      <ul>
+        <li><a href="#shoes">Shoes</a></li>
+        <li><a href="#watches">Watches</a></li>
+        <li><a href="#clothes">Clothes</a></li>
+        <li><a href="#perfumes">Perfumes</a></li>
+        <li><a href="#specs">Specs</a></li>
+      </ul>
+    </nav>
+    <div class="cart">
+      <a href="#" id="view-cart">🛒 Cart (<span id="cart-count">0</span>)</a>
     </div>
-  </header>  <section class="search-bar">
-    <input type="text" id="searchInput" placeholder="Search products..." onkeyup="searchProducts()" />
-  </section>  <section class="categories">
-    <button onclick="filterCategory('All')">All</button>
-    <button onclick="filterCategory('Shoes')">Shoes</button>
-    <button onclick="filterCategory('Watches')">Watches</button>
-    <button onclick="filterCategory('Perfumes')">Perfumes</button>
-    <button onclick="filterCategory('Clothes')">Clothes</button>
-  </section>  <section class="product-list" id="productList">
-    <!-- Products will load from JS -->
-  </section>  <div class="cart-modal" id="cartModal">
-    <h2>Your Cart</h2>
-    <div id="cartItems"></div>
-    <p>Total: ₹<span id="cartTotal">0</span></p>
-    <button onclick="orderWhatsApp()">Order via WhatsApp</button>
-    <button onclick="toggleCart()">Close</button>
-  </div>  <footer class="footer">
-    <p>© 2025 SNITCHX. All rights reserved. | Powered by MidowWebDev</p>
-  </footer>
-</body>
+  </header>  <section class="banner">
+    <h1>Buy 2 Get 1 Free | Limited Time Offer</h1>
+  </section>  <main id="product-container">
+    <!-- Products dynamically inserted here by JS -->
+  </main>  <footer>
+    <p>&copy; 2025 SNITCHX | Powered by Midow</p>
+    <p><a href="https://wa.me/8793727113" target="_blank">Order Now on WhatsApp</a></p>
+  </footer>  <script src="script.js"></script></body>
 </html>
