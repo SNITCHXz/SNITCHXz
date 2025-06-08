@@ -1,38 +1,28 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
+<!DOCTYPE html><html lang="en"><head>
   <meta charset="UTF-8">
-  <title>SnitchX | Premium Streetwear</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SnitchX - Premium Store</title>
   <link rel="stylesheet" href="style.css">
-</head>
-<body>
-  <header>
-    <h1 class="brand">SNITCHX</h1>
-    <p class="tagline">Premium Streetwear for International Clients</p>
-    <input type="text" id="search" placeholder="Search products..." />
-    <div class="cart" onclick="viewCart()">🛒 Cart (<span id="cart-count">0</span>)</div>
-  </header>
-
-  <section class="banner">
-    <h2>🔥 Buy 2 Get 1 Free 🔥</h2>
-  </section>
-
-  <main id="product-container">
-    <!-- Products will be loaded by JS -->
-  </main>
-
-  <footer>
-    <p>&copy; 2025 SnitchX. All rights reserved.</p>
-  </footer>
-
-  <div id="cart-popup" class="hidden">
-    <h3>Your Cart</h3>
-    <ul id="cart-items"></ul>
-    <a id="whatsapp-btn" target="_blank">Checkout on WhatsApp</a>
-    <button onclick="closeCart()">Close</button>
-  </div>
-
-  <script src="script.js"></script>
-</body>
-</html>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700&display=swap" rel="stylesheet">
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+</head><body>
+  <header class="navbar">
+    <div class="logo">SNITCHX</div>
+    <div class="tagline">Premium Streetwear for International Clients</div>
+    <div class="cart-icon" onclick="toggleCart()">
+      <i class="fas fa-shopping-cart"></i><span id="cart-count">0</span>
+    </div>
+  </header>  <div class="promo-banner">🔥 Buy 2 Get 1 Free 🔥</div>  <main>
+    <input type="text" id="searchBar" placeholder="Search products..." onkeyup="searchProducts()">
+    <div class="products" id="product-list"></div>
+  </main>  <div id="cart" class="cart-popup">
+    <h2>Your Cart</h2>
+    <div id="cart-items"></div>
+    <div class="cart-footer">
+      <p>Total: ₹<span id="cart-total">0</span></p>
+      <button onclick="orderNow()">Order via WhatsApp</button>
+      <button onclick="toggleCart()">Close</button>
+    </div>
+  </div>  <footer>
+    &copy; 2025 SnitchX. All rights reserved.
+  </footer>  <script src="script.js"></script></body></html>
