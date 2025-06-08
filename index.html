@@ -3,87 +3,46 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>SnitchX - Premium Lifestyle Brand</title>
+<title>SNITCHX - Premium E-Commerce</title>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
 <link rel="stylesheet" href="style.css" />
-<script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
 </head>
 <body>
-
 <header>
-  <div class="container nav-container">
-    <a href="#" class="logo"><span class="gradient-text">Snitch</span><span class="logo-x">X</span></a>
-    <nav>
-      <ul class="nav-links">
-        <li><a href="#shoes">Shoes</a></li>
-        <li><a href="#watches">Watches</a></li>
-        <li><a href="#clothes">Clothes</a></li>
-        <li><a href="#perfumes">Perfumes</a></li>
-      </ul>
-    </nav>
-    <div class="cart-icon" id="cartBtn" title="Cart">
-      <i class="fas fa-shopping-cart"></i><span id="cartCount">0</span>
-    </div>
-    <div class="hamburger" id="hamburger">
-      <i class="fas fa-bars"></i>
-    </div>
+  <div class="logo">SNITCH<span>X</span></div>
+  <nav>
+    <ul class="nav-links">
+      <li><button class="category-btn active" data-category="all">All</button></li>
+      <li><button class="category-btn" data-category="shoes">Shoes</button></li>
+      <li><button class="category-btn" data-category="watches">Watches</button></li>
+      <li><button class="category-btn" data-category="perfumes">Perfumes</button></li>
+      <li><button class="category-btn" data-category="clothes">Clothes</button></li>
+      <li><button class="category-btn" data-category="specs">Specs</button></li>
+    </ul>
+  </nav>
+  <div class="cart-icon" id="cart-icon">
+    🛒 <span id="cart-count">0</span>
   </div>
 </header>
 
-<!-- Mobile Menu -->
-<div id="mobileMenu" class="mobile-menu">
-  <ul>
-    <li><a href="#shoes" class="mobile-link">Shoes</a></li>
-    <li><a href="#watches" class="mobile-link">Watches</a></li>
-    <li><a href="#clothes" class="mobile-link">Clothes</a></li>
-    <li><a href="#perfumes" class="mobile-link">Perfumes</a></li>
-  </ul>
-</div>
-
-<main class="container">
-
-  <section class="hero-section">
-    <h1>Elevate Your Style with <span class="gradient-text">SnitchX</span></h1>
-    <p>Premium Brands, Unmatched Quality</p>
-    <a href="#shoes" class="btn-primary">Shop Now</a>
+<main>
+  <section class="search-section">
+    <input type="text" id="search-input" placeholder="Search products..." />
   </section>
 
-  <!-- Product Sections -->
-
-  <section id="shoes" class="product-section">
-    <h2>Shoes</h2>
-    <div class="product-grid" id="shoesProducts"></div>
+  <section class="products-container" id="products-container">
+    <!-- Products dynamically inserted here -->
   </section>
 
-  <section id="watches" class="product-section">
-    <h2>Watches</h2>
-    <div class="product-grid" id="watchesProducts"></div>
+  <section class="cart-panel" id="cart-panel">
+    <h2>Your Cart</h2>
+    <div id="cart-items"></div>
+    <div class="cart-total">Total: ₹<span id="cart-total">0</span></div>
+    <button id="order-btn">Order via WhatsApp</button>
+    <button id="close-cart">Close</button>
   </section>
-
-  <section id="clothes" class="product-section">
-    <h2>Clothes</h2>
-    <div class="product-grid" id="clothesProducts"></div>
-  </section>
-
-  <section id="perfumes" class="product-section">
-    <h2>Perfumes</h2>
-    <div class="product-grid" id="perfumesProducts"></div>
-  </section>
-
 </main>
 
-<!-- Cart Sidebar -->
-<aside id="cartSidebar" class="cart-sidebar">
-  <h3>Your Cart</h3>
-  <div id="cartItems"></div>
-  <div class="cart-total">
-    <strong>Total:</strong> <span id="cartTotal">₹0.00</span>
-  </div>
-  <button id="orderBtn" class="btn-primary">Order via WhatsApp</button>
-  <button id="closeCart" class="btn-secondary">Close</button>
-</aside>
-
 <script src="script.js"></script>
-
 </body>
 </html>
