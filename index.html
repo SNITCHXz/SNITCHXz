@@ -1,48 +1,36 @@
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE html><html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>SNITCHX - Premium E-Commerce</title>
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
-<link rel="stylesheet" href="style.css" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SNITCHX - Premium Streetwear</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;800&display=swap" rel="stylesheet" />
+  <script src="script.js" defer></script>
 </head>
 <body>
-<header>
-  <div class="logo">SNITCH<span>X</span></div>
-  <nav>
-    <ul class="nav-links">
-      <li><button class="category-btn active" data-category="all">All</button></li>
-      <li><button class="category-btn" data-category="shoes">Shoes</button></li>
-      <li><button class="category-btn" data-category="watches">Watches</button></li>
-      <li><button class="category-btn" data-category="perfumes">Perfumes</button></li>
-      <li><button class="category-btn" data-category="clothes">Clothes</button></li>
-      <li><button class="category-btn" data-category="specs">Specs</button></li>
-    </ul>
-  </nav>
-  <div class="cart-icon" id="cart-icon">
-    🛒 <span id="cart-count">0</span>
-  </div>
-</header>
-
-<main>
-  <section class="search-section">
-    <input type="text" id="search-input" placeholder="Search products..." />
-  </section>
-
-  <section class="products-container" id="products-container">
-    <!-- Products dynamically inserted here -->
-  </section>
-
-  <section class="cart-panel" id="cart-panel">
+  <header class="header">
+    <div class="logo">SNITCHX</div>
+    <div class="cart-icon" onclick="toggleCart()">
+      🛒 <span id="cart-count">0</span>
+    </div>
+  </header>  <section class="search-bar">
+    <input type="text" id="searchInput" placeholder="Search products..." onkeyup="searchProducts()" />
+  </section>  <section class="categories">
+    <button onclick="filterCategory('All')">All</button>
+    <button onclick="filterCategory('Shoes')">Shoes</button>
+    <button onclick="filterCategory('Watches')">Watches</button>
+    <button onclick="filterCategory('Perfumes')">Perfumes</button>
+    <button onclick="filterCategory('Clothes')">Clothes</button>
+  </section>  <section class="product-list" id="productList">
+    <!-- Products will load from JS -->
+  </section>  <div class="cart-modal" id="cartModal">
     <h2>Your Cart</h2>
-    <div id="cart-items"></div>
-    <div class="cart-total">Total: ₹<span id="cart-total">0</span></div>
-    <button id="order-btn">Order via WhatsApp</button>
-    <button id="close-cart">Close</button>
-  </section>
-</main>
-
-<script src="script.js"></script>
+    <div id="cartItems"></div>
+    <p>Total: ₹<span id="cartTotal">0</span></p>
+    <button onclick="orderWhatsApp()">Order via WhatsApp</button>
+    <button onclick="toggleCart()">Close</button>
+  </div>  <footer class="footer">
+    <p>© 2025 SNITCHX. All rights reserved. | Powered by MidowWebDev</p>
+  </footer>
 </body>
 </html>
